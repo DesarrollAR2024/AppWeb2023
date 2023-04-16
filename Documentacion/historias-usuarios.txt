@@ -1,0 +1,21 @@
+#us09 "COMO usuario administrador quiero ingresar al sitio web con mis 
+datos" #TK18 Generar sistema de registro de usuarios y autenticación.
+
+#us10 "COMO usario quiero poder crear un perfil, modificarlo y acceder 
+al sitio web con mis datos" #TK18 Generar sistema de registro de usuarios 
+y autenticación.
+
+#us11 "COMO usuario quiero poder visualizar todos los productos y filtrarlos
+de acuerdo a mis preferencias" #TK19 Generar sección productos con sus 
+correspondientes filtros y categorías para usuarios clientes.
+
+#us12 "COMO usuario quiero ir agregando y modificando uno o varios productos 
+sin dejar de navegar por el sitio para luego avanzar con la compra" 
+#TK20 Generar icono de carrito en menu y su sección correspondiente.
+
+#us13 "COMO usuario proveedor quiero contar con un menú para poder agregar 
+o quitar productos" #TK21 Generar sección para que los usuarios proveedores 
+puedan agregar, quitar y modificar productos.
+
+#us14 "COMO usuario quiero poder navegar por el sitio desde distintos 
+dispoistivos" #TK22 Adaptar el sitio web para que sea responsive.
