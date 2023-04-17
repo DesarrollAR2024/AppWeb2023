@@ -1,0 +1,49 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg{
+    background-color: none  ;
+} 
+
+.navbar .navbar-nav .nav-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar .navbar-nav .nav-item {
+    display: inline-block;
+
+}
+
+.navbar .navbar-nav .nav-item a,
+.navbar .navbar-nav .nav-item button {
+    font-family: var(--fuente-primaria);
+    color: aliceblue;
+}
+
+.navbar .navbar-nav .nav-item a {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+}
+
+.navbar .navbar-nav .nav-item a:hover {
+    background-color: fuchsia;
+}
+
+.dropdown-menu{
+    background-color: black;
+}
+
+.navbar-toggler{
+    color: white;
+}
+
+.logo{
+    padding: 10px;
+}
