@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { DashboardIndexComponent } from './dashboard-index/dashboard-index.component';
+import { DashboardIndexComponent } from './components/dashboard-index/dashboard-index.component';
 
 @NgModule({
   declarations: [
