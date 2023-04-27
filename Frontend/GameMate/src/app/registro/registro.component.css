@@ -6,12 +6,12 @@ html{
 }
 
 body{
-    background-image: url("../../../assets/img-fondo1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'Orbitron', sans-serif;
+    margin-top: 40px;
 }
 
 .container {

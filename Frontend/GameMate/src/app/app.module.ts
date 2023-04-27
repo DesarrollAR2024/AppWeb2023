@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { DashboardIndexComponent } from './components/dashboard-index/dashboard-index.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DashboardIndexComponent } from './components/dashboard-index/dashboard-
     LoginComponent,
     CarritoComponent,
     DashboardIndexComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
