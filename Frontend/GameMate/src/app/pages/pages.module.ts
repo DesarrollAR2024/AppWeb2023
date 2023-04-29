@@ -4,10 +4,11 @@ import { DashboardIndexComponent } from './dashboard-index/dashboard-index.compo
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PagesRoutingModule } from './pages-routing.module';
+import { TerminosycondicinonesComponent } from './terminosycondicinones/terminosycondicinones.component';
 
 
 @NgModule({
-  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent],
+  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent],
   imports: [
     CommonModule,
     PagesRoutingModule
