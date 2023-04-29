@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TiendaComponent } from './pages/tienda/tienda.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TiendaComponent
+  ],
   imports: [
     CommonModule
   ]
