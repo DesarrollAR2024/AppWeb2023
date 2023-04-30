@@ -14,6 +14,6 @@ import { ProductoComponent } from './producto/producto.component';
     CommonModule,
     PagesRoutingModule
   ], 
-  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent]
+  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ProductoComponent]
 })
 export class PagesModule { }
