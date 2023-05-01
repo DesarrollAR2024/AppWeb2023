@@ -10,11 +10,11 @@ import { ContactoComponent } from './contacto/contacto.component';
 
 
 @NgModule({
-  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent],
+  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent],
   imports: [
     CommonModule,
     PagesRoutingModule
   ], 
-  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ProductoComponent]
+  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent]
 })
 export class PagesModule { }
