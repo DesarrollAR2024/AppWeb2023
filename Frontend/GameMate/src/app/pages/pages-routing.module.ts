@@ -5,12 +5,14 @@ import { DashboardIndexComponent } from './dashboard-index/dashboard-index.compo
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { TerminosycondicinonesComponent } from './terminosycondicinones/terminosycondicinones.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const routes: Routes = [
   { path: '', component: DashboardIndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'terminos', component: TerminosycondicinonesComponent }
+  { path: 'terminos', component: TerminosycondicinonesComponent },
+  {path:'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
