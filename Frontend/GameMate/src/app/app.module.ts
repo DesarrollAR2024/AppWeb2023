@@ -1,25 +1,32 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { PagesModule } from './pages/pages.module';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { DashboardIndexComponent } from './components/dashboard-index/dashboard-index.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    CarritoComponent,
+    DashboardIndexComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    PagesModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
   })
 export class AppModule { }
