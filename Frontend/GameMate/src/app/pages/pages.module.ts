@@ -13,7 +13,7 @@ import { TiendaComponent } from './tienda/tienda.component';
   imports: [
     CommonModule,
     PagesRoutingModule
-  ], 
-  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent]
+  ],
+  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicionesComponent, ContactoComponent, ProductoComponent, TiendaComponent]
 })
 export class PagesModule { }
