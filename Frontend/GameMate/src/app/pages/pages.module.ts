@@ -8,10 +8,11 @@ import { TerminosycondicinonesComponent } from './terminosycondicinones/terminos
 import { TiendaComponent } from './tienda/tienda.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ProductoComponent } from './producto/producto.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 
 @NgModule({
-  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent],
+  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent],
   imports: [
     CommonModule,
     PagesRoutingModule
