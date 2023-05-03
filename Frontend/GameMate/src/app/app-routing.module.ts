@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './pages/login/login.component';
-import { DashboardIndexComponent } from './pages/dashboard-index/dashboard-index.component';
-import { RegistroComponent } from './pages/registro/registro.component';
-
 const routes: Routes = [
-  {path: '', component: DashboardIndexComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'registro', component: RegistroComponent}
+  { path: 'pages',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+  },
+  { path: 'login', component: LoginComponent},
+  { path: 'producto', component: ProductoComponent},
+  { path: 'registro', component: RegistroComponent},
+  { path: 'terminosycondiciones', component: TerminosycondicinonesComponent}
 ];
 
 @NgModule({
