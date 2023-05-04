@@ -24,7 +24,7 @@ body.contacto{
 }
 .contact-wrapper {
     box-shadow: 0 0 20px 0 rgba(255,255,255, .3) ;
-    background: rgba(244, 236, 236, 0.91);
+    background: rgba(244, 236, 236, 0.753);
 }
 .contact-wrapper > * { 
     padding: 1em;
@@ -49,7 +49,7 @@ body.contacto{
     border:none;
     background: none;
     outline: 0;
-    color:#ffff;
+    color:#ffffffce;
     border-bottom: 1px solid #7507E3;
 
 }
@@ -145,7 +145,7 @@ i.fa-solid, i.fa-brands {
 
     body.contacto {
 
-       background-image: url(/Frontend/GameMate/src/assets/img_fondo3.jpg);
+       background-image: url(./../../../assets/img_fondo3.jpg);
         background-size: cover;
         background-repeat: no-repeat;
     }

@@ -1,4 +1,12 @@
 /* Globales */
+:root {
+  --fuente-primaria: 'Orbitron', sans-serif;
+  --fuente-segundaria: monospace, sans-serif;
+  --primario: #19122F;
+  --blanco: #FFFFFF;
+}
+
+
 *::after,
 *::before,
 *{
@@ -10,14 +18,14 @@
 body{
     margin: 0 auto;
     max-width: 1200px;
-    font-family: 'Lato';
-    background-color: #261c47;
+    font: var(--fuente-segundaria);
+    background-color: var(--primario);
 }
 
 .icon-cart{
     width: 40px;
     height: 40px;
-    stroke: white;
+    stroke: var(--blanco);
 }
 
 .icon-cart:hover{
@@ -35,30 +43,26 @@ header{
     align-items: center;
     padding: 30px 0 40px 0;
 }
-.container-logo-title{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-img{
-    width: 100px;
-    height: 100%;
-}
+
 
 h1{
-    color: white;
-
+    color: var(--blanco);
+    font-weight: 500;
+    font-family: var(--fuente-segundaria);
+    margin-left: 50px;
 }
 
 .container-icon{
     position: relative;
+    margin-right: 50px;
 }
 
 /* Main */
 .container-items{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 38px;
+    grid-template-columns: repeat(auto-fill, minmax(30rem,1fr));
+    gap: 3rem;
+    /*gap: 38px;*/
     margin-bottom: 50px;
 }
 
@@ -90,7 +94,7 @@ h1{
 .info-product{
     padding: 15px 30px;
     line-height: 2;
-    color: white;
+    color: var(--blanco);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -106,13 +110,11 @@ h1{
     border-style: solid;
     background: none;
     background-color: #000;
-    color: #fff;
+    color: var(--blanco);
     padding: 15px 10px;
     cursor: pointer;
 }
 
-@media only screen and (max-width: 915px) {
-    .container-items{
-        grid-template-columns: repeat(auto-fit,3,1fr);
-    }
-}
+
+
+
