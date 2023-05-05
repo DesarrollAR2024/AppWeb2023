@@ -29,3 +29,10 @@ body {
     line-height: 2;
     background-color: var(--primario);
 }
+.nosotros__imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: 1400px;
+    margin-top: 20px;
+  }
