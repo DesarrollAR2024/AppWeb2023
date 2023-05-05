@@ -63,7 +63,7 @@ h1{
     grid-template-columns: repeat(auto-fill, minmax(30rem,1fr));
     gap: 3rem;
     /*gap: 38px;*/
-    margin-bottom: 50px;
+    margin: 10px 15px 50px;
 }
 
 .item{
