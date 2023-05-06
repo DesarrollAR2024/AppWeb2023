@@ -1,8 +1,30 @@
-.nosotros__imagen {
-  width: 100%;
+ {
+  width: 50%;
   height: auto;
   display: block;
   margin-left: 140px;
   margin-top: 20px;
+  }
+
+  .main__texto1 {
+    text-align: center;
+
+
+
+  }
+
+  .main__section--invitacion--2 {
+    text-align: center;
+
+
+  }
+
+  .bloques {
+    text-align: center;
+
+  }
+
+  .comprar__titulo {
+    text-align: center;
   }
   
