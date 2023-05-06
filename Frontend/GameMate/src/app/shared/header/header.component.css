@@ -6,7 +6,7 @@
 
 .bg{
     background-color: none  ;
-} 
+}
 
 .navbar .navbar-nav .nav-item {
     margin: 0;
@@ -80,7 +80,4 @@
     position: absolute;
 }
 
-.carrito{
-    font-size: 25px;
-    padding-left: 50px;
-}
+
