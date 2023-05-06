@@ -6,8 +6,12 @@
 h1{
     text-align: center;
     color: var(--blanco);
-    font-family: var(--fuente-secundaria);
+    font-family: var(--fuente-segundaria);
     font-size: 4rem;
+}
+
+img {
+    width: 100%;
 }
 
 .formulario {

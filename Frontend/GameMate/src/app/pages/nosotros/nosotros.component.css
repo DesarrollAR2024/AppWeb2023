@@ -1,30 +1,43 @@
- {
-  width: 50%;
-  height: auto;
-  display: block;
-  margin-left: 140px;
-  margin-top: 20px;
-  }
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
 
-  .main__texto1 {
-    text-align: center;
+h1{
+  text-align: center;
+  color: var(--blanco);
+  font-family: var(--fuente-segundaria);
+  font-size: 4rem;
+}
 
+.nosotros {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+}
 
+.main__texto1 {
+  text-align: center;
+}
 
-  }
+.main__section--invitacion--2 {
+  text-align: center;
+}
 
-  .main__section--invitacion--2 {
-    text-align: center;
+.bloques {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
 
+.bloque {
+  text-align: center;
+}
 
-  }
+.bloque__titulo {
+    margin: 0;
+}
 
-  .bloques {
-    text-align: center;
-
-  }
-
-  .comprar__titulo {
-    text-align: center;
-  }
+.comprar__titulo {
+  text-align: center;
+}
   
