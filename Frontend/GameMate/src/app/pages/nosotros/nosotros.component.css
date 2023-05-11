@@ -9,12 +9,25 @@ h1{
   font-family: var(--fuente-segundaria);
   font-size: 4rem;
 }
-
-.nosotros {
-  display: grid;
-  grid-template-rows: repeat(2, auto);
+.animacion1__img,
+/*.animacion2__img {
+  height: 10rem;
+  width: auto;
 }
-
+.animacion1__img {
+  margin-left: 105rem;
+}
+.animacion2__img {
+  margin-left: 75rem;
+}
+.nosotros {
+  display: flex;
+  gap: 10rem;
+}
+.animacion__img {
+  height: 60rem;
+  width: auto;
+}*/
 .main__texto1 {
   text-align: center;
 }
