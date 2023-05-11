@@ -10,7 +10,7 @@ h1{
   font-size: 4rem;
 }
 .animacion1__img,
-/*.animacion2__img {
+.animacion2__img {
   height: 10rem;
   width: auto;
 }
@@ -27,7 +27,7 @@ h1{
 .animacion__img {
   height: 60rem;
   width: auto;
-}*/
+}
 .main__texto1 {
   text-align: center;
 }
