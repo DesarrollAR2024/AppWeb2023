@@ -77,7 +77,11 @@ WSGI_APPLICATION = 'gamematebackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': gamemate/ 'db.sqlite3',
+        'NAME': 'gamemateconecommercce.sql',
+        'USER': 'username',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

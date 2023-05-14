@@ -37,3 +37,23 @@ def game_detail(request, pk):
         'price': game.price,
     }}
     return JsonResponse(data)
+
+from .serializers import ProductoSerializer
+
+class ProductoList(ListAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from rest_framework import generics
+from .models import usuarios
+from .serializers import usuariosSerializer
+
+class usuariosList(generics.ListAPIView):
+    queryset = usuarios.objects.all()
+    serializer_class = usuariosSerializer
+
+class usuariosDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = usuarios.objects.all()
+    serializer_class = usuarioSerializer
