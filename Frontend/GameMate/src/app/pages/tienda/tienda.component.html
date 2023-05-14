@@ -9,20 +9,20 @@
 
   </header>
   <div class="container-items">
-      <div class="item">
+      <div class="item" *ngFor="let Tienda of tienda">
           <figure>
               <img
-                  src="assets/Tienda Game Mate Galeria/DOOM3.png"
+                  src="{{Tienda.imagen}}"
                   alt="producto"
               />
           </figure>
           <div class="info-product">
-              <h2>Remera DOOM</h2>
-              <p class="price">$4.200</p>
+              <h2>{{Tienda.nombre}}</h2>
+              <p class="price">{{Tienda.precio}}</p>
               <button>AÑADIR AL CARRITO</button>
           </div>
       </div>
-      <div class="item">
+      <!-- <div class="item">
           <figure>
               <img
                   src="assets/Tienda Game Mate Galeria/ASSA.png"
@@ -124,8 +124,8 @@
               <h2>Taza Valorant</h2>
               <p class="price">$2.200</p>
               <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
+          </div> 
+      </div> -->
   </div>
 
 </body>
