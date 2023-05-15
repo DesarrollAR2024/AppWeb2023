@@ -10,7 +10,7 @@ export class ProductoServiceService {
   private url = 'http://localhost:3000/producto';
   constructor(private http:HttpClient) { }
 
-  getproductos(): Observable<Producto[]> {
+  public getProducto(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.url);
   }
 }

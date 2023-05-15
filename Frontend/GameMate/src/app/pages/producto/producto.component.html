@@ -1,22 +1,39 @@
 <div class="contenedor">
-    <h1>Remera DOOM</h1>
+  <div class="item" *ngFor="let Producto of producto">
+    <figure>
+      <h1>{{ Producto.nombre }}</h1>
 
-    <div class="camisa">
-        <img class="camisa__imagen" src="assets/Tienda Game Mate Galeria/DOOM3.png" alt="Imagen del Producto">
+      <div class="camisa">
+        <img
+          class="camisa__imagen"
+          src="{{ Producto.imagen }}"
+          alt="Imagen del Producto"
+        />
 
         <div class="camisa__contenido">
-            <p>Remera con estampado de DOOM. Super comoda, hecha de 100% Algodón.</p>
+          <p>{{ Producto.descripcion }}</p>
 
-            <form class="formulario">
-                <select class="formulario__campo">
-                    <option disabled selected>-- Seleccionar Talla --</option>
-                    <option>Chica</option>
-                    <option>Mediana</option>
-                    <option>Grande</option>
-                </select>
-                <input class="formulario__campo" type="number" placeholder="Cantidad" min="1">
-                <input class="formulario__submit" type="submit" value="Agregar al Carrito">
-            </form>
+          <form class="formulario">
+            <select class="formulario__campo">
+              <option disabled selected>-- Seleccionar Talla --</option>
+              <option>Chica</option>
+              <option>Mediana</option>
+              <option>Grande</option>
+            </select>
+            <input
+              class="formulario__campo"
+              type="number"
+              placeholder="Cantidad"
+              min="1"
+            />
+            <input
+              class="formulario__submit"
+              type="submit"
+              value="Agregar al Carrito"
+            />
+          </form>
         </div>
-    </div>
+      </div>
+    </figure>
+  </div>
 </div>
