@@ -1,5 +1,5 @@
 """
-WSGI config for gamematebackend project.
+WSGI config for abm_ispc project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gamematebackend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'abm_ispc.settings')
 
 application = get_wsgi_application()
