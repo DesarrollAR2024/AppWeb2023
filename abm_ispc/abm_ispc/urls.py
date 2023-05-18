@@ -1,5 +1,5 @@
 """
-URL configuration for gamematebackend project.
+URL configuration for abm_ispc project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.urls import include
+
 from django.contrib import admin
 from django.urls import path
 
@@ -21,14 +23,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-from django.urls import path, include
-urlpatterns = [
-    path('', include('gamemateapi.urls')),
-]
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('api/users/', views.UserList.as_view(), name='user-list'),
-    path('api/users/<int:pk>/', views.UserDetail.as_view(), name='user-detail'),
-]
