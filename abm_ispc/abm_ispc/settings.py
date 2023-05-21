@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GameMate7',
+    'GameMate7.apps.Gamemate7Config'
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User 
+from django.db.models.signals import post_save
 # Create your models here.
 
 class Categoria(models.Model):
@@ -63,7 +64,7 @@ class Direccion(models.Model):
         return self.id_direccion
     
 class Usuarios(models.Model):
-    nickname= models.CharField(primary_key=True, max_length=15)
+    user= models.CharField(primary_key=True, max_length=15)
     nombre= models.CharField(max_length=20)
     apellido= models.CharField(max_length=20)
     fecha_nac= models.DateField()
@@ -78,10 +79,15 @@ class Usuarios(models.Model):
         verbose_name="datos de los usuarios"
         verbose_name_plural="Usuarios"
     def __unicode__ (self):
-        return self.nickname 
+        return self.user 
     def __str__ (self):
-        return self.nickname
-    
+        return self.user.username
+def create_user_usuarios(sender , instance , create,**kwargs ):
+    if create:
+        Usuarios.objects.create(user=instance)
+def save_user_usuarios(sender , instance , **kwargs):
+    instance.usuarios.save()
+
 class Juegos(models.Model):
     id_juego = models.IntegerField(primary_key=True)
     juego = models.CharField(max_length=30)
@@ -287,26 +293,5 @@ class Login(models.Model):
     def __str__ (self):
         return self.id_login
 
-
-    
-
-                                    
-                                    
-    
-    
-
-
-    
-
-
-
-
-
-
-    
-
-    
-    
-
-    
-
+post_save.connect(create_user_usuarios , sender=User)
+post_save.connect(save_user_usuarios , sender=User)

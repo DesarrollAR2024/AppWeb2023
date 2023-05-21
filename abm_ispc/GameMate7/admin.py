@@ -13,7 +13,7 @@ class ProveedorAdmin(admin.ModelAdmin):
 class DireccionAdmin(admin.ModelAdmin):
     list_display = ("id_direccion", "direccion", "cod_post", "provincia", "localidad")
 class UsuariosAdmin(admin.ModelAdmin):
-    list_display = ("nickname", "nombre", "apellido", "fecha_nac", "provincia", "email")
+    list_display = ("user", "nombre", "apellido", "fecha_nac", "provincia", "email")
 class JuegosAdmin(admin.ModelAdmin):
     list_display = ("id_juego", "juego")
 class JugarAdmin(admin.ModelAdmin):
