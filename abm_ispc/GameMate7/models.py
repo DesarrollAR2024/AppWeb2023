@@ -260,6 +260,33 @@ class Redes(models.Model):
     def __str__ (self):
         return self.id_redes
 
+class Registro(models.Model):
+    nombre = models.CharField(max_length=20)
+    apellido= models.CharField(max_length=20)
+    nombre_usuario=models.CharField(max_length=8)
+    email= models.CharField(max_length=25)
+    contraseña= models.CharField(max_length=10)
+    class Meta:
+        db_table="Registro"
+        verbose_name="datos de registrados"
+        verbose_name_plural="Registros"
+    def __unicode__ (self):
+        return self.id_registro
+    def __str__ (self):
+        return self.id_registro
+    
+class Login(models.Model):
+    usuario = models.CharField(max_length=20)
+    contraseña= models.CharField(max_length=10)
+    class Meta:
+        db_table="Login"
+        verbose_name="datos de inicio de Sesion"
+        verbose_name_plural="Logins"
+    def __unicode__ (self):
+        return self.id_login
+    def __str__ (self):
+        return self.id_login
+
 
     
 

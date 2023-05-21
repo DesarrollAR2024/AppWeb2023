@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes
+from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, Registro , Login 
 
 
 # Register your models here.
@@ -30,6 +30,8 @@ class PedidoAdmin(admin.ModelAdmin):
     list_display = ("id_pedido", "fecha_pedido", "estado_pedido")
 class ProductoAdmin(admin.ModelAdmin):
     list_display = ("id_producto", "precio", "nombre", "descripcion")
+class RegistroAdmin(admin.ModelAdmin):
+    list_display = ( "nombre", "apellido", 'nombre_usuario', "email" )
 
 
 admin.site.register(Categoria, CategoriaAdmin)
@@ -48,6 +50,9 @@ admin.site.register(Galeria)
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Redes)
+admin.site.register(Registro, RegistroAdmin)
+admin.site.register(Login )
+
 
 
 
