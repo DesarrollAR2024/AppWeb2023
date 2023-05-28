@@ -9,15 +9,14 @@ import { RegistroComponent } from './registro/registro.component';
 import { TerminosycondicinonesComponent } from './terminosycondicinones/terminosycondicinones.component';
 import { TiendaComponent } from './tienda/tienda.component';
 import { PagesRoutingModule } from './pages-routing.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent],
     imports: [
         CommonModule,
         PagesRoutingModule,
-        ReactiveFormsModule,
-        FormsModule
+        ReactiveFormsModule
     ],
     exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent, TiendaComponent, NosotrosComponent]
   })
