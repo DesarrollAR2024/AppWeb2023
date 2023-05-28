@@ -9,14 +9,23 @@ import { RegistroComponent } from './registro/registro.component';
 import { TerminosycondicinonesComponent } from './terminosycondicinones/terminosycondicinones.component';
 import { TiendaComponent } from './tienda/tienda.component';
 import { PagesRoutingModule } from './pages-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
+
+=======
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+>>>>>>> 8bbf2f892366585fcaa9057ff439a3ebcdddf455
 
 @NgModule({
     declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent],
     imports: [
         CommonModule,
         PagesRoutingModule,
-        ReactiveFormsModule
+<<<<<<< HEAD
+
+=======
+        ReactiveFormsModule,
+        FormsModule
+>>>>>>> 8bbf2f892366585fcaa9057ff439a3ebcdddf455
     ],
     exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent, TiendaComponent, NosotrosComponent]
   })
