@@ -1,34 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  registroForm!: FormGroup;
+  registroForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder) {
     this.registroForm = this.formBuilder.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
       user: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['',[ Validators.required , Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z]).*$/)]]
     });
+  }
+  
+
+  ngOnInit() {
+    
   }
 
   submitRegistroForm() {
     if (this.registroForm.valid) {
-      //  FALTAA VALLLIDACIONES
       console.log(this.registroForm.value);
     } else {
-      // //// FALTAA VALLLIDACIONES ///
       console.log('El formulario es inválido');
     }
   }
