@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\payas\Downloads\GameMateBack\Game-Mate-Modulo-Programador-Web-2023\abm_ispc\myenv
+set VIRTUAL_ENV=C:\Users\Matias\Desktop\ISPC-2023-TRIANAREPO\abm_ispc\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 

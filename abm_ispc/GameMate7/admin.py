@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, Registro , Login 
+from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, Registro , Login  
+
+#CustomUser 
 
 
 # Register your models here.
@@ -32,6 +34,11 @@ class ProductoAdmin(admin.ModelAdmin):
     list_display = ("id_producto", "precio", "nombre", "descripcion")
 class RegistroAdmin(admin.ModelAdmin):
     list_display = ( "nombre", "apellido", 'nombre_usuario', "email" )
+#Se agrega el modelo UsuarioAdmin para el CustomUser
+#class CustomUserAdmin(admin.ModelAdmin):
+#    list_display = ('email', 'first_name', 'last_name', 'password')
+
+
 
 
 admin.site.register(Categoria, CategoriaAdmin)
@@ -52,6 +59,7 @@ admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Redes)
 admin.site.register(Registro, RegistroAdmin)
 admin.site.register(Login )
+#admin.site.register(CustomUser, CustomUserAdmin)
 
 
 

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'GameMate7.apps.Gamemate7Config',
+    'rest_framework',
     'corsheaders',
+    
     
 ]
 
