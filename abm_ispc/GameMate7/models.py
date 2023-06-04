@@ -13,7 +13,7 @@ class Categoria(models.Model):
     def __unicode__ (self):
         return self.id_categoria
     def __str__ (self):
-        return self.id_categoria
+        return str(self.id_categoria)
 
 class Cliente(models.Model):
     id_cliente= models.AutoField(primary_key=True)
@@ -29,7 +29,7 @@ class Cliente(models.Model):
     def __unicode__ (self):
         return self.id_cliente
     def __str__ (self):
-        return self.id_cliente
+        return str(self.id_cliente)
     
 class Proveedor(models.Model):
     id_proveedor= models.AutoField(primary_key=True)
@@ -44,7 +44,7 @@ class Proveedor(models.Model):
     def __unicode__ (self):
         return self.id_proveedor
     def __str__ (self):
-        return self.id_proveedor
+        return str(self.id_proveedor)
 
 class Direccion(models.Model):
     id_direccion= models.CharField(max_length=50, primary_key=True)
@@ -60,7 +60,7 @@ class Direccion(models.Model):
     def __unicode__ (self):
         return self.id_direccion
     def __str__ (self):
-        return self.id_direccion
+        return str(self.id_direccion)
     
 class Usuarios(models.Model):
     nickname= models.CharField(primary_key=True, max_length=15)
@@ -80,7 +80,7 @@ class Usuarios(models.Model):
     def __unicode__ (self):
         return self.nickname 
     def __str__ (self):
-        return self.nickname
+        return str(self.nickname)
     
 class Juegos(models.Model):
     id_juego = models.IntegerField(primary_key=True)
@@ -93,7 +93,7 @@ class Juegos(models.Model):
     def __unicode__ (self):
         return self.id_juego
     def __str__ (self):
-        return self.id_juego
+        return str(self.id_juego)
 
 class Jugar(models.Model):
     nivel_jugador = models.CharField(max_length=15)
@@ -106,7 +106,7 @@ class Jugar(models.Model):
     def __unicode__ (self):
         return self.nivel_jugador
     def __str__ (self):
-        return self.nivel_jugador
+        return str(self.nivel_jugador)
     
 class Dispositivos(models.Model):
     id_dispositivos= models.IntegerField(primary_key=True)
@@ -123,7 +123,7 @@ class Dispositivos(models.Model):
     def __unicode__ (self):
         return self.id_dispositivos
     def __str__ (self):
-        return self.id_dispositivos
+        return str(self.id_dispositivos)
     
 
 class Compatibilidad(models.Model):
@@ -136,7 +136,7 @@ class Compatibilidad(models.Model):
     def __unicode__ (self):
         return self.nombre
     def __str__ (self):
-        return self.nombre
+        return str(self.nombre)
     
     
 class Envio(models.Model):
@@ -156,7 +156,7 @@ class Envio(models.Model):
     def __unicode__ (self):
         return self.id_envio
     def __str__ (self):
-        return self.id_envio
+        return str(self.id_envio)
     
 class Orden(models.Model):
     id_orden= models.AutoField(primary_key=True)
@@ -173,7 +173,7 @@ class Orden(models.Model):
     def __unicode__ (self):
         return self.id_orden 
     def __str__ (self):
-        return self.id_orden 
+        return str(self.id_orden)
     
 class Facturacion(models.Model):
     numero_factura= models.IntegerField(primary_key=True)
@@ -191,7 +191,7 @@ class Facturacion(models.Model):
     def __unicode__ (self):
         return self.numero_factura
     def __str__ (self):
-        return self.numero_factura
+        return str(self.numero_factura)
 
 class Galeria(models.Model):
     id_galeria= models.IntegerField(primary_key=True)
@@ -205,7 +205,7 @@ class Galeria(models.Model):
     def __unicode__ (self):
         return self.id_galeria
     def __str__ (self):
-        return self.id_galeria
+        return str(self.id_galeria)
     
     
 class Pedido(models.Model):
@@ -222,7 +222,7 @@ class Pedido(models.Model):
     def __unicode__ (self):
         return self.id_pedido
     def __str__ (self):
-        return self.id_pedido
+        return str(self.id_pedido)
 
 class Producto(models.Model):
     id_producto= models.AutoField(primary_key=True)
@@ -239,7 +239,7 @@ class Producto(models.Model):
     def __unicode__ (self):
         return self.id_producto
     def __str__ (self):
-        return self.id_producto
+        return str(self.id_producto)
 
 
 class Redes(models.Model):
@@ -258,7 +258,7 @@ class Redes(models.Model):
     def __unicode__ (self):
         return self.id_redes
     def __str__ (self):
-        return self.id_redes
+        return str(self.id_redes)
 
 
     
