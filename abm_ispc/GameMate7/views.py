@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import authenticate
 from GameMate7.serializers import RegistroUsuarioSerializer, LoginUsuarioSerializer
 from django.http import HttpResponse
 
@@ -19,7 +20,7 @@ class LoginUsuarioView(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = authenticate(
             request,
-            email=serializer.validated_data['email'],
+            username=serializer.validated_data['username'],
             password=serializer.validated_data['password']
         )
         if user:

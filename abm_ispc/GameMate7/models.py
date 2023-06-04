@@ -38,21 +38,23 @@ from .managers import CustomUserManager
 #         usuario.save()
 #         return usuario
 
+# PermissionsMixin
 
-class CustomUser(AbstractBaseUser, PermissionsMixin):
+class CustomUser(AbstractBaseUser): 
     #se agrega username y usuario_administrador en la última línea de este modelo
     username = models.CharField(unique=True, max_length=50)
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     is_staff = models.BooleanField(default=False)
-    # password= models.CharField(max_length=10)
+    #password= models.CharField(max_length=20)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
     groups = models.ManyToManyField(Group, related_name='customuser_set', blank=True)
     user_permissions = models.ManyToManyField(Permission, related_name='customuser_set', blank=True)
     usuario_administrador= models.BooleanField(default= False)
     objects = CustomUserManager()
+
 
 #cambio el username_flied que tenia email por username
 
@@ -61,19 +63,21 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
-    
+
     #Se agregan métodos para la gestión del administrador de django
     # def has_perm(self, perm, obj = None):
     #     return True
     # def has_module_perms(self, app_label):
     #     return True
     
-    @property
-    def is_staff(self):
-        return self.usuario_administrador
-    
+    #@property
 
-class Categoria(models.Model):
+    # def is_staff(self,):
+    #    return self.usuario_administrador
+        
+
+
+class Categoria(models.Model): 
     id_categoria= models.IntegerField(primary_key=True)
     nombre= models.CharField(max_length=20, blank=False)
     informacion= models.CharField(max_length=100, blank=False)
