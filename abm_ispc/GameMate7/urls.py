@@ -5,6 +5,7 @@ from GameMate7  import views
 
 router= routers.DefaultRouter()
 router.register(r'usuarios',views.UsuariosViewSet)
+router.register(r'productos',views.verProductos)
 #----
 urlpatterns = [
      path('', include(router.urls)),
