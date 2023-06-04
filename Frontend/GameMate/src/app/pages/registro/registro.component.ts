@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -18,10 +19,10 @@ export class RegistroComponent implements OnInit {
       password: ['',[ Validators.required , Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z]).*$/)]]
     });
   }
-  
+
 
   ngOnInit() {
-    
+
   }
 
   submitRegistroForm() {
