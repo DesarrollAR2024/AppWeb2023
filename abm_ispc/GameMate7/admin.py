@@ -2,7 +2,7 @@
 #from .models import Categoria, Cliente, Compatibilidad, Direccion, Dispositivos, Envio, Facturacion, Galeria, Juegos, Jugar, Orden, Pedido, Producto, Proveedor, Redes, Usuarios
 
 from django.contrib import admin
-from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes
+from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, CustomUser
 
 # Register your models here.
 
@@ -34,6 +34,9 @@ class ProductoAdmin(admin.ModelAdmin):
     list_display = ("id_producto", "precio", "nombre", "descripcion")
 class RegistroAdmin(admin.ModelAdmin):
     list_display = ( "nombre", "apellido", 'nombre_usuario', "email" )
+
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ( "email",)
    
 
 admin.site.register(Categoria)
@@ -52,7 +55,7 @@ admin.site.register(Galeria)
 admin.site.register(Pedido)
 admin.site.register(Producto)
 admin.site.register(Redes)
-
+admin.site.register(CustomUser, CustomUserAdmin)
 
 
 

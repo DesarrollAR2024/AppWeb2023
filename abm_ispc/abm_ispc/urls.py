@@ -21,6 +21,7 @@ from django.urls import path , include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1', include('GameMate7.urls')),    
+    path('api/v1', include('GameMate7.urls')),
+    path('api/', include ('GameMate7.urls')),   
 ]
 
