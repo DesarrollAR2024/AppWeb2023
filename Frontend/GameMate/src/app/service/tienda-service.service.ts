@@ -7,7 +7,7 @@ import { Tienda } from '../Tienda';
   providedIn: 'root'
 })
 export class TiendaServiceService {
-  private url = 'http://localhost:3000/producto';
+  private url = 'http://localhost:8000/api/v1productos/';
 
   constructor(private http:HttpClient) { }
 
