@@ -17,9 +17,10 @@ Including another URLconf
 from django.urls import include
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1', include('GameMate7.urls')),    
 ]
 

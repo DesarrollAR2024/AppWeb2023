@@ -87,7 +87,6 @@ body{
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    color: #fff;
     letter-spacing: 4px;
     text-decoration: none;
     font-size: 16px;
@@ -183,4 +182,12 @@ body{
     .container__form--login p {
         font-size: 1.2rem;
     }
+}
+
+.ng-valid:not(form).ng-touched {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form).ng-touched {
+    border-left: 5px solid #a94442;
 }
