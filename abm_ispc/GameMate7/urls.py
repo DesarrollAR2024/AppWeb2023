@@ -8,6 +8,8 @@ from.views import LoginView, LogoutView
 router= routers.DefaultRouter()
 router.register(r'usuarios',views.UsuariosViewSet)
 router.register(r'productos',views.verProductos)
+router.register(r'categorias',views.verCategorias)
+router.register(r'proveedores',views.verProveedores)
 #----
 urlpatterns = [
      path('', include(router.urls)),
