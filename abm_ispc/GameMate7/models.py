@@ -11,7 +11,7 @@ class CustomUser(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     def __str__(self):
-        return self.email
+        return str(self.email)
         
 
 class Categoria(models.Model):
