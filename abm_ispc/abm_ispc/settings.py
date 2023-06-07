@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'GameMate7.apps.Gamemate7Config',
     'corsheaders',
+    'rest_framework',
     
 ]
 
@@ -119,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     
 ]
-
+#Custom user model
 AUTH_USER_MODEL = 'GameMate7.CustomUser'
 
 ...

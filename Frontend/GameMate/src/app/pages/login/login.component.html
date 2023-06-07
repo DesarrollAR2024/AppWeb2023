@@ -11,7 +11,7 @@
                 <div class="container__form--campus">
                     <div class="campus">
                         <label for="email">Usuario</label>
-                        <input type="text" id="email" placeholder="" required="required" formControlName="mail">
+                        <input type="text" id="email" placeholder="" formControlName="mail">
                         <div *ngIf="Mail?.errors && Mail?.touched">
                             <p *ngIf="Mail?.hasError('required')" class="text-danger">
                                 El email es requerido.
@@ -23,13 +23,16 @@
                     </div>
                     <div class="campus">
                         <label for="password">Contraseña</label>
-                        <input type="password" id="password" placeholder="*****" required="required" formControlName="password">
+                        <input type="password" id="password" placeholder="*****" formControlName="password">
                         <div *ngIf="Password?.errors && Password?.touched">
                             <p *ngIf="Password?.hasError('requiered')" class="text-danger">
-                                El password es requerido.
+                                La contraseña es requerida.
                             </p>
                             <p *ngIf="Password?.hasError('minlength')" class="text-danger">
-                                El password debe ser de 8 o mas caracteres.
+                                La contraseña debe ser de 8 o mas caracteres.
+                            </p>
+                            <p *ngIf="Password?.hasError('pattern')" class="text-danger">
+                                La contraseña debe contener al menos una letra mayuscula.
                             </p>
                         </div>
                     </div>

@@ -17,11 +17,12 @@ export class RegistroComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['',[ Validators.required , Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z]).*$/)]]
     });
+
   }
-  
+
 
   ngOnInit() {
-    
+
   }
 
   submitRegistroForm() {
@@ -31,4 +32,5 @@ export class RegistroComponent implements OnInit {
       console.log('El formulario es inválido');
     }
   }
+
 }

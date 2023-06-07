@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder){
     this.form= this.formBuilder.group({
       mail:['',[Validators.required, Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8)]]
+      password:['',[Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z]).*$/)]]
     })
   }
   

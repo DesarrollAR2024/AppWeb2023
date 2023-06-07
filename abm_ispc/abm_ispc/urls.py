@@ -23,15 +23,7 @@ from GameMate7.views import RegistroUsuarioView, LoginUsuarioView
 urlpatterns = [
     path('registro/', RegistroUsuarioView.as_view(), name='registro'),
     path('login/', LoginUsuarioView.as_view(), name='login'),
-]
-
-
-urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
-urlpatterns = [
-    # Otras rutas URL de tu proyecto...
-
     path('game_mate/', include('GameMate7.urls')),
 ]
+

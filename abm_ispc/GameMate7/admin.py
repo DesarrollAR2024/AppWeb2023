@@ -1,8 +1,13 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, Registro , Login 
+from django.contrib.auth import get_user_model
 
 
 # Register your models here.
+@admin.register(get_user_model())
+class CustomUserAdmin(UserAdmin):
+    pass
 
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ("id_cliente", "nombre_completo", "apellido", "dni", "telefono", "nickname")
@@ -52,6 +57,9 @@ admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Redes)
 admin.site.register(Registro, RegistroAdmin)
 admin.site.register(Login )
+
+
+
 
 
 
