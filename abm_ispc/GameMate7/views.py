@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from rest_framework import viewsets
 from rest_framework import status, generics
-from .serializer import UsuariosSerializer, ProductoSerializer, CategoriaSerializer, ProveedorSerializer
-from .models import Usuarios, Producto, Categoria, Proveedor
+from .serializer import UsuariosSerializer, ProductoSerializer, CategoriaSerializer, ProveedorSerializer, FacturacionSerializer
+from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion, CustomUser
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -35,6 +35,34 @@ class verProveedores(viewsets.ModelViewSet):
     queryset = Proveedor.objects.all()
     serializer_class = ProveedorSerializer
 
+class agregarProducto(APIView):
+    permission_classes = [IsAdminUser]
+    def post(self, request, format=None):
+        serializer = ProductoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,
+                        status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+#PAGOS    
+class FacturacionViewSet(viewsets.ModelViewSet):
+    queryset=Facturacion.objects.all()
+    serializer_class=FacturacionSerializer
+    def perform_create(self, serializer):
+        usuario_id = self.request.data.get('usuario') # aquí obtenemos el id del usuario
+        usuario = Usuarios.objects.get(id=usuario_id) # y lo buscamos en la base de datos
+        serializer.save(usuario=usuario) # pasamos el objeto encontrado al serializer
+
+#VISTA DE LOS USUARIOS REGISTRADOS   
+class ProfileView(generics.RetrieveUpdateAPIView):
+    permission_classes = [IsAuthenticated] #Solo usuarios logueados pueden ver.
+    serializer_class = UsuariosSerializer
+    http_method_names = ['get', 'patch']
+    def get_object(self):
+        if self.request.user.is_authenticated:
+            return self.request.user
+
 # Se agregan las clase de login y logout
 
 class LoginView(APIView):
@@ -59,3 +87,14 @@ class LogoutView(APIView):
     
 class SignupView(generics.CreateAPIView):
     serializer_class = UsuariosSerializer
+
+class ListarUsuarios(generics.ListCreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UsuariosSerializer
+    http_method_names = ['get']
+    permission_classes = [IsAdminUser]
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = UsuariosSerializer(queryset, many=True)
+        if self.request.user.is_authenticated:
+            return Response(serializer.data)
