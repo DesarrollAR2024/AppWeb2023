@@ -1,11 +1,18 @@
-from django.urls import path
-from GameMate7.views import RegistroUsuarioView, LoginUsuarioView
+from django.urls import path, include
+from rest_framework import routers
+#from Usuarios.views import UsuariosViewSet
+from GameMate7 import views
+#Se configura url de la app
+from.views import LoginView, LogoutView
 
-app_name = 'GameMate7'
-
+router= routers.DefaultRouter()
+router.register(r'usuarios',views.UsuariosViewSet)
+router.register(r'productos',views.verProductos)
+router.register(r'categorias',views.verCategorias)
+router.register(r'proveedores',views.verProveedores)
+#----
 urlpatterns = [
-    path('registro/', RegistroUsuarioView.as_view(), name='registro'),
-    path('login/', LoginUsuarioView.as_view(), name='login'),
-    # Otras rutas URL de la aplicación GameMate7...
+     path('', include(router.urls)),
+     path('auth/login/', LoginView.as_view(), name='auth_login'),
+     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
 ]
-

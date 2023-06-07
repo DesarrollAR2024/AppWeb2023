@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -17,7 +18,6 @@ export class RegistroComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['',[ Validators.required , Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z]).*$/)]]
     });
-
   }
 
 
@@ -32,5 +32,4 @@ export class RegistroComponent implements OnInit {
       console.log('El formulario es inválido');
     }
   }
-
 }

@@ -8,33 +8,6 @@
       </div>
 
   </header>
-
-  <h1>Bienvenido a la tienda virtual</h1>
-
-<div class="product-container">
-  <div *ngFor="let product of products" class="product-card">
-    <h2>{{ product.name }}</h2>
-    <p>Precio: {{ product.price }}</p>
-    <button (click)="agregarAlCarrito(product)">Agregar al carrito</button>
-  </div>
-</div>
-
-<div class="cart-container">
-  <h2>Carrito de compras</h2>
-  <div *ngIf="cartItems.length === 0">
-    <p>No hay productos en el carrito.</p>
-  </div>
-  <div *ngFor="let item of cartItems" class="cart-item">
-    <p>{{ item.name }}</p>
-    <p>Precio: {{ item.price }}</p>
-    <button (click)="quitarDelCarrito(item)">Quitar del carrito</button>
-  </div>
-  <div *ngIf="cartItems.length > 0">
-    <h3>Total: {{ calcularTotal() }}</h3>
-  </div>
-</div>
-
-
   <div class="container-items">
       <div class="item" *ngFor="let Tienda of tienda">
           <figure>
@@ -49,23 +22,6 @@
               <button>AÑADIR AL CARRITO</button>
           </div>
       </div>
-
-      <div class="item">
-    <figure>
-        <img src="assets/Tienda Game Mate Galeria/ASSA.png" alt="producto" />
-    </figure>
-    <div class="info-product">
-        <h2>Buzo Assassin's Creed</h2>
-        <p class="price">$8.000</p>
-        <button (click)="agregarAlCarrito('Buzo Assassin\'s Creed')">AÑADIR AL CARRITO</button>
-        
-    </div>
-    
-</div>
-
-
-
-
       <!-- <div class="item">
           <figure>
               <img

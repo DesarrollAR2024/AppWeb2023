@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from corsheaders.middleware import CorsMiddleware
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,18 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GameMate7.apps.Gamemate7Config',
-    'corsheaders',
+    'GameMate7',
     'rest_framework',
-    
+    'corsheaders',
+
 ]
 
-
-
-
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware', #revisar
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,9 +51,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+    ]
 
 ROOT_URLCONF = 'abm_ispc.urls'
 
@@ -118,17 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-    
 ]
-#Custom user model
-AUTH_USER_MODEL = 'GameMate7.CustomUser'
-
-...
-
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-]
-
 
 
 # Internationalization
@@ -148,14 +135,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Configuración de CORS
-CORS_ALLOWED_ORIGINS = [
-    # Aquí puedes agregar los orígenes permitidos para la comunicación con Angular
-    'http://localhost:4200',  # Ejemplo para un proyecto de Angular en ejecución localmente en el puerto 4200
-]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#custom user model
+
+AUTH_USER_MODEL = "GameMate7.CustomUser"

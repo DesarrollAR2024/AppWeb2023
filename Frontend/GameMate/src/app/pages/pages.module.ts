@@ -10,7 +10,7 @@ import { TerminosycondicinonesComponent } from './terminosycondicinones/terminos
 import { TiendaComponent } from './tienda/tienda.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RegistroService } from 'app/service/registro.service';
+
 
 @NgModule({
     declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent],
@@ -20,7 +20,7 @@ import { RegistroService } from 'app/service/registro.service';
         ReactiveFormsModule,
         FormsModule
     ],
-    providers: [RegistroService],
+
     exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent, TiendaComponent, NosotrosComponent]
   })
 

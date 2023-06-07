@@ -1,32 +1,61 @@
 from django.shortcuts import render
-from rest_framework import generics, permissions, status
+from django.contrib.auth import authenticate, login, logout
+from rest_framework import viewsets
+from rest_framework import status, generics
+from .serializer import UsuariosSerializer, ProductoSerializer, CategoriaSerializer, ProveedorSerializer
+from .models import Usuarios, Producto, Categoria, Proveedor
+from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework_simplejwt.tokens import RefreshToken
-from GameMate7.serializers import RegistroUsuarioSerializer, LoginUsuarioSerializer
-from django.http import HttpResponse
+from rest_framework.views import APIView
+
+#Se agrega para gestionar vista de login y logout
+from django.contrib.auth import authenticate, login, logout
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Create your views here.
-class RegistroUsuarioView(generics.CreateAPIView):
-    serializer_class = RegistroUsuarioSerializer
-    permission_classes = (permissions.AllowAny,)
 
-class LoginUsuarioView(generics.GenericAPIView):
-    serializer_class = LoginUsuarioSerializer
-    permission_classes = (permissions.AllowAny,)
+class UsuariosViewSet(viewsets.ModelViewSet):
+    queryset= Usuarios.objects.all()
+    serializer_class=UsuariosSerializer
 
+class verProductos(viewsets.ModelViewSet):
+    permission_classes = [AllowAny] 
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+class verCategorias(viewsets.ModelViewSet):
+    permission_classes = [AllowAny] 
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class verProveedores(viewsets.ModelViewSet):
+    permission_classes = [AllowAny] 
+    queryset = Proveedor.objects.all()
+    serializer_class = ProveedorSerializer
+
+# Se agregan las clase de login y logout
+
+class LoginView(APIView):
+    permission_classes = [AllowAny] 
     def post(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = authenticate(
-            request,
-            email=serializer.validated_data['email'],
-            password=serializer.validated_data['password']
-        )
+        email = request.data.get('email',None)
+        pasword = request.data.get('password', None)
+        user = authenticate (email=email, pasword=pasword)
+
         if user:
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
-            })
-        else:
-            return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
+            login(request, user)
+            return Response(UsuariosSerializer(user).data,status=status.HTTP_200_OK)
+         
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+class LogoutView(APIView):
+    permission_classes = [AllowAny] 
+    def post(self, request):
+        logout(request)
+
+        return Response(status=status.HTTP_200_OK)
+    
+class SignupView(generics.CreateAPIView):
+    serializer_class = UsuariosSerializer

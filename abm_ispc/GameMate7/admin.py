@@ -1,13 +1,10 @@
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, Registro , Login 
-from django.contrib.auth import get_user_model
+#from django.contrib import admin
+#from .models import Categoria, Cliente, Compatibilidad, Direccion, Dispositivos, Envio, Facturacion, Galeria, Juegos, Jugar, Orden, Pedido, Producto, Proveedor, Redes, Usuarios
 
+from django.contrib import admin
+from .models import Categoria, Cliente, Proveedor, Direccion, Usuarios, Juegos, Jugar, Dispositivos, Compatibilidad, Envio, Orden, Facturacion, Galeria, Pedido, Producto, Redes, CustomUser
 
 # Register your models here.
-@admin.register(get_user_model())
-class CustomUserAdmin(UserAdmin):
-    pass
 
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ("id_cliente", "nombre_completo", "apellido", "dni", "telefono", "nickname")
@@ -37,31 +34,27 @@ class ProductoAdmin(admin.ModelAdmin):
     list_display = ("id_producto", "precio", "nombre", "descripcion")
 class RegistroAdmin(admin.ModelAdmin):
     list_display = ( "nombre", "apellido", 'nombre_usuario', "email" )
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ( "email",)
+   
 
-
-admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Categoria)
 admin.site.register(Cliente, ClienteAdmin)
-admin.site.register(Proveedor, ProveedorAdmin)
-admin.site.register(Direccion, DireccionAdmin)
-admin.site.register(Usuarios, UsuariosAdmin)
-admin.site.register(Juegos, JuegosAdmin)
-admin.site.register(Jugar, JugarAdmin)
-admin.site.register(Dispositivos, DispositivosAdmin)
+admin.site.register(Proveedor)
+admin.site.register(Direccion)
+admin.site.register(Usuarios)
+admin.site.register(Juegos)
+admin.site.register(Jugar)
+admin.site.register(Dispositivos)
 admin.site.register(Compatibilidad)
-admin.site.register(Envio, EnvioAdmin)
-admin.site.register(Orden, OrdenAdmin)
-admin.site.register(Facturacion, FacturacionAdmin)
+admin.site.register(Envio)
+admin.site.register(Orden)
+admin.site.register(Facturacion)
 admin.site.register(Galeria)
-admin.site.register(Pedido, PedidoAdmin)
-admin.site.register(Producto, ProductoAdmin)
+admin.site.register(Pedido)
+admin.site.register(Producto)
 admin.site.register(Redes)
-admin.site.register(Registro, RegistroAdmin)
-admin.site.register(Login )
-
-
-
-
-
+admin.site.register(CustomUser, CustomUserAdmin)
 
 
 
