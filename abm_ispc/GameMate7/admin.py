@@ -34,10 +34,6 @@ class ProductoAdmin(admin.ModelAdmin):
     list_display = ("id_producto", "precio", "nombre", "descripcion")
 class RegistroAdmin(admin.ModelAdmin):
     list_display = ( "nombre", "apellido", 'nombre_usuario', "email" )
-<<<<<<< HEAD
-
-=======
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ( "email",)
    

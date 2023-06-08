@@ -1,11 +1,5 @@
 from django.urls import path, include
 from rest_framework import routers
-<<<<<<< HEAD
-#from Usuarios.views import UsuariosViewSet
-from GameMate7 import views
-#Se configura url de la app
-from.views import LoginView, LogoutView
-=======
 from GameMate7 import views
 from .views import LoginView, LogoutView, SignupView, ProfileView, agregarProducto, ListarUsuarios
 
@@ -15,15 +9,8 @@ router.register(r'productos', views.verProductos)
 router.register(r'categorias', views.verCategorias)
 router.register(r'proveedores', views.verProveedores)
 router.register(r'facturaciones', views.FacturacionViewSet)
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
 
 urlpatterns = [
-<<<<<<< HEAD
-     path('', include(router.urls)),
-     path('auth/login/', LoginView.as_view(), name='auth_login'),
-     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
-]
-=======
     path('', include(router.urls)),
     path('auth/login/', LoginView.as_view(), name='auth_login'),
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
@@ -33,4 +20,3 @@ urlpatterns = [
     path('usuarios/', ListarUsuarios.as_view(), name='listar_usuarios'),
     path('agregarproducto/', agregarProducto.as_view(), name='agregar_producto'),
 ]
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b

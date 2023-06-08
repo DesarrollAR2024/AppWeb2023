@@ -1,19 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
-from django.contrib.auth.models import AbstractBaseUser
-
-# Create your models here.
-
-
-class CustomUser(AbstractBaseUser):
-    email = models.EmailField(
-        max_length=150, unique=True
-    )
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
-    def __str__(self):
-        return self.email
-=======
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # Create your models here.
@@ -56,7 +41,6 @@ class CustomUser(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
         
 
 class Categoria(models.Model):

@@ -5,11 +5,8 @@ from rest_framework import status, generics
 from .serializer import UsuariosSerializer, ProductoSerializer, CategoriaSerializer, ProveedorSerializer, FacturacionSerializer
 from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion, CustomUser
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
-<<<<<<< HEAD
-=======
 from rest_framework.response import Response
 from rest_framework.views import APIView
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
 
 #Se agrega para gestionar vista de login y logout
 from django.contrib.auth import authenticate, login, logout
@@ -28,11 +25,6 @@ class verProductos(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
 
-<<<<<<< HEAD
-# Se agregan las clase de login y logount
-
-class LoginView(APIView):
-=======
 class verCategorias(viewsets.ModelViewSet):
     permission_classes = [AllowAny] 
     queryset = Categoria.objects.all()
@@ -75,7 +67,6 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 
 class LoginView(APIView):
     permission_classes = [AllowAny] 
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
     def post(self, request):
         email = request.data.get('email',None)
         pasword = request.data.get('password', None)
@@ -83,21 +74,11 @@ class LoginView(APIView):
 
         if user:
             login(request, user)
-<<<<<<< HEAD
-            return Response(status=status.HTTP_200_OK)
-=======
             return Response(UsuariosSerializer(user).data,status=status.HTTP_200_OK)
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
          
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 class LogoutView(APIView):
-<<<<<<< HEAD
-    def post(self, request):
-        logout(request)
-
-        return Response(status=status.HTTP_200_OK)
-=======
     permission_classes = [AllowAny] 
     def post(self, request):
         logout(request)
@@ -117,4 +98,3 @@ class ListarUsuarios(generics.ListCreateAPIView):
         serializer = UsuariosSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response(serializer.data)
->>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
