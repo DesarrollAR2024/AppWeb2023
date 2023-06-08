@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'GameMate7',
     'rest_framework',
     'corsheaders',
+    'django_rest_passwordreset',
 
 ]
 

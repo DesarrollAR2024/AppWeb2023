@@ -1,16 +1,36 @@
 from django.urls import path, include
 from rest_framework import routers
+<<<<<<< HEAD
 #from Usuarios.views import UsuariosViewSet
 from GameMate7 import views
 #Se configura url de la app
 from.views import LoginView, LogoutView
+=======
+from GameMate7 import views
+from .views import LoginView, LogoutView, SignupView, ProfileView, agregarProducto, ListarUsuarios
 
-router= routers.DefaultRouter()
-router.register(r'usuarios',views.UsuariosViewSet)
-router.register(r'productos',views.verProductos)
-#----
+router = routers.DefaultRouter()
+router.register(r'usuarios', views.UsuariosViewSet)
+router.register(r'productos', views.verProductos)
+router.register(r'categorias', views.verCategorias)
+router.register(r'proveedores', views.verProveedores)
+router.register(r'facturaciones', views.FacturacionViewSet)
+>>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
+
 urlpatterns = [
+<<<<<<< HEAD
      path('', include(router.urls)),
      path('auth/login/', LoginView.as_view(), name='auth_login'),
      path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
 ]
+=======
+    path('', include(router.urls)),
+    path('auth/login/', LoginView.as_view(), name='auth_login'),
+    path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
+    path('auth/reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('auth/registro/', SignupView.as_view(), name='auth_signup'),
+    path('user/profile/', ProfileView.as_view(), name='user_profile'),
+    path('usuarios/', ListarUsuarios.as_view(), name='listar_usuarios'),
+    path('agregarproducto/', agregarProducto.as_view(), name='agregar_producto'),
+]
+>>>>>>> 7145f9b056f1e38c670511a727951b5fa9c0101b
