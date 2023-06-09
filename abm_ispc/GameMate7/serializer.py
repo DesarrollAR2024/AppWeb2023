@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion
+from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion, CustomUser
 
 class UsuariosSerializer(serializers.ModelSerializer):
  class Meta:
-  model= Usuarios 
+  model= CustomUser 
   fields='__all__'
   #fields=('nombre','observacion')
 
