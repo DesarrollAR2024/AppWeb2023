@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from rest_framework import viewsets
 from rest_framework import status, generics
-from .serializer import UsuariosSerializer, ProductoSerializer, CategoriaSerializer, ProveedorSerializer, FacturacionSerializer
+from .serializer import UserSerializer, ProductoSerializer, CategoriaSerializer, ProveedorSerializer, FacturacionSerializer
 from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion, CustomUser
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -13,12 +13,13 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import BasePermission
 
 # Create your views here.
 
 class UsuariosViewSet(viewsets.ModelViewSet):
-    queryset= Usuarios.objects.all()
-    serializer_class=UsuariosSerializer
+    queryset= CustomUser.objects.all()
+    serializer_class=UserSerializer
 
 class verProductos(viewsets.ModelViewSet):
     permission_classes = [AllowAny] 
@@ -57,7 +58,7 @@ class FacturacionViewSet(viewsets.ModelViewSet):
 #VISTA DE LOS USUARIOS REGISTRADOS   
 class ProfileView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated] #Solo usuarios logueados pueden ver.
-    serializer_class = UsuariosSerializer
+    serializer_class = UserSerializer
     http_method_names = ['get', 'patch']
     def get_object(self):
         if self.request.user.is_authenticated:
@@ -69,12 +70,12 @@ class LoginView(APIView):
     permission_classes = [AllowAny] 
     def post(self, request):
         email = request.data.get('email',None)
-        pasword = request.data.get('password', None)
-        user = authenticate (email=email, pasword=pasword)
+        password = request.data.get('password', None)
+        user = authenticate (email=email, password=password)
 
         if user:
             login(request, user)
-            return Response(UsuariosSerializer(user).data,status=status.HTTP_200_OK)
+            return Response(UserSerializer(user).data,status=status.HTTP_200_OK)
          
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -86,15 +87,16 @@ class LogoutView(APIView):
         return Response(status=status.HTTP_200_OK)
     
 class SignupView(generics.CreateAPIView):
-    serializer_class = UsuariosSerializer
+    serializer_class = UserSerializer
 
 class ListarUsuarios(generics.ListCreateAPIView):
     queryset = CustomUser.objects.all()
-    serializer_class = UsuariosSerializer
+    serializer_class = UserSerializer
     http_method_names = ['get']
     permission_classes = [IsAdminUser]
-    def list(self, request):
+    def get_objet(self):
         queryset = self.get_queryset()
-        serializer = UsuariosSerializer(queryset, many=True)
+        serializer = UserSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response(serializer.data)
+    
