@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
+    'http://localhost:4200',
     ]
 
 ROOT_URLCONF = 'abm_ispc.urls'

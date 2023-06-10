@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){
     this.form= this.formBuilder.group({
-      mail:['',[Validators.required, Validators.email]],
+      email:['',[Validators.required, Validators.email]],
       password:['',[Validators.required, Validators.minLength(8)]]
     })
   }
@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
     return this.form.get("password");
   }
   
-  get Mail(){
-    return this.form.get("mail");
+  get Email(){
+    return this.form.get("email");
   }
 
   get PasswordValid()
@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
     return this.Password?.touched && !this.Password?.valid;
   }
 
-  get MailValid()
+  get EmailValid()
   {
-    return this.Mail?.touched && !this.Mail?.valid;
+    return this.Email?.touched && !this.Email?.valid;
   }   
 
   ngOnInit(){
