@@ -24,7 +24,8 @@ class UsuariosViewSet(viewsets.ModelViewSet):
 
 
 class verProductos(viewsets.ModelViewSet):
-    permission_classes = [AllowAny]
+    # permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
     http_method_names = ['get']
