@@ -30,22 +30,25 @@ class verProductos(viewsets.ModelViewSet):
     http_method_names = ['get']
 
 
-# class agregarProducto(viewsets.ModelViewSet):
-#     permission_classes = [AllowAny]
-#     queryset = Producto.objects.all()
-#     serializer_class = AgregarProductoSerializer
-
 class agregarProducto(generics.ListCreateAPIView):
     queryset = Producto.objects.all()
     serializer_class = AgregarProductoSerializer
     http_method_names = ['get', 'post']
     permission_classes = [IsAdminUser]
+    # permission_classes = [AllowAny]
 
     def get_objet(self):
         queryset = self.get_queryset()
         serializer = AgregarProductoSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response(serializer.data)
+
+
+class modificarProducto(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = AgregarProductoSerializer
+    permission_classes = [IsAdminUser]
+    # permission_classes = [AllowAny]
 
 
 class verCategorias(viewsets.ModelViewSet):
@@ -123,9 +126,17 @@ class ListarUsuarios(generics.ListCreateAPIView):
     serializer_class = UserSerializer
     http_method_names = ['get', 'post']
     permission_classes = [IsAdminUser]
+    # permission_classes = [AllowAny]
 
     def get_objet(self):
         queryset = self.get_queryset()
         serializer = UserSerializer(queryset, many=True)
         if self.request.user.is_authenticated:
             return Response(serializer.data)
+
+
+class modificarUsuario(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAdminUser]
+    # permission_classes = [AllowAny]

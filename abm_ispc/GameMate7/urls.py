@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from GameMate7 import views
-from .views import LoginView, LogoutView, SignupView, ProfileView, ListarUsuarios, agregarProducto
+from .views import LoginView, LogoutView, SignupView, ProfileView, ListarUsuarios, agregarProducto, modificarProducto, modificarUsuario
 
 router = routers.DefaultRouter()
 # router.register(r'usuarios', views.UsuariosViewSet)
@@ -20,5 +20,10 @@ urlpatterns = [
     path('auth/registro/', SignupView.as_view(), name='auth_signup'),
     path('user/profile/', ProfileView.as_view(), name='user_profile'),
     path('usuarios/', ListarUsuarios.as_view(), name='listar_usuarios'),
+    path('modificarusuario/<int:pk>/', modificarUsuario.as_view(),
+         name='modificar_usuarios'),
     path('agregarproducto/', agregarProducto.as_view(), name='agregar_producto'),
+    path('modificarproducto/<int:pk>/',
+         modificarProducto.as_view(), name='modificar_producto'),
+
 ]
