@@ -5,8 +5,9 @@ from django.contrib.auth.hashers import make_password
 
 # class UsuariosSerializer(serializers.ModelSerializer):
 #  class Meta:
-#   model= CustomUser 
+#   model= CustomUser
 #   fields='__all__'
+
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -19,24 +20,35 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email','password','is_active','is_admin','is_staff')
+        fields = ('email', 'password', 'is_active', 'is_admin', 'is_staff')
+
     def validate_password(self, value):
         return make_password(value)
+
 
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
         fields = '__all__'
 
+
+class AgregarProductoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Producto
+        fields = '__all__'
+
+
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoria
         fields = '__all__'
 
+
 class ProveedorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proveedor
         fields = '__all__'
+
 
 class FacturacionSerializer(serializers.ModelSerializer):
     class Meta:
