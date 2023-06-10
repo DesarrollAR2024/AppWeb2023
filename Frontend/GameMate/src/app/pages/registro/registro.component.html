@@ -3,20 +3,20 @@
 </div>
 <div class="container">
   <div class="container__form">
-    <form [formGroup]="registroForm" (ngSubmit)="submitRegistroForm()">
+    <form [formGroup]="registroForm" (ngSubmit)="submitRegistroForm($event, usuario)">
       <h1 class="container__form--title">CREA TU CUENTA</h1>
       <div class="container__form--campus">
         <div class="campus">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" formControlName="name" placeholder="Nombre" required>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre" required>
         </div>
         <div class="campus">
-          <label for="surname">Apellido</label>
-          <input type="text" id="surname" formControlName="surname" placeholder="Apellido" required>
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" formControlName="apellido" placeholder="Apellido" required>
         </div>
         <div class="campus">
-          <label for="user">Nombre de Usuario</label>
-          <input type="text" id="user" formControlName="user" placeholder="Usuario" required>
+          <label for="nickname">Nombre de Usuario</label>
+          <input type="text" id="nickname" formControlName="nickname" placeholder="Usuario" required>
         </div>
        <div class="campus">
        <label for="email">Correo electrónico</label>
