@@ -10,6 +10,12 @@ from django.contrib.auth.hashers import make_password
 
 
 class UserSerializer(serializers.ModelSerializer):
+    usuario = serializers.CharField(
+        max_length=20)
+    nombre = serializers.CharField(
+        max_length=20)
+    apellido = serializers.CharField(
+        max_length=20)
     email = serializers.EmailField(
         required=True)
     password = serializers.CharField(
@@ -20,7 +26,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'password', 'is_active', 'is_admin', 'is_staff')
+        fields = ('usuario', 'nombre', 'apellido', 'email',
+                  'password', 'is_active', 'is_admin', 'is_staff')
 
     def validate_password(self, value):
         return make_password(value)
