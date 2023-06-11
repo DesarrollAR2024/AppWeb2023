@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TiendaServiceService } from 'app/service/tienda-service.service';
-import { Tienda } from 'app/Tienda';
+import { Tienda } from 'app/model/Tienda';
 
 @Component({
   selector: 'app-tienda',
