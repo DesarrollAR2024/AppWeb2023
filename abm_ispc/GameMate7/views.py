@@ -20,12 +20,12 @@ class UsuariosViewSet(viewsets.ModelViewSet):
     queryset= Usuarios.objects.all()
     serializer_class=UsuariosSerializer
 
-class verProductos(viewsets.ModelViewSet):
+class verProductos(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny] 
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
 
-class verCategorias(viewsets.ModelViewSet):
+class verCategorias(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny] 
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
