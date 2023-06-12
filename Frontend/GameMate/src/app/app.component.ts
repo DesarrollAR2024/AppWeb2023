@@ -1,19 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Producto } from './model/Producto' ; 
-import { ProductoServiceService } from './service/producto-service.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
+export class AppComponent {
   title = 'GameMate';
 
-  productos: Producto[] =[];
-  constructor(private productoService: ProductoServiceService){}
-
-  ngOnInit(): void {
-      this.productoService.getProducto().subscribe((productos) => (this.productos = productos))
-  }
 }

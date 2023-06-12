@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { TiendaServiceService } from 'app/service/tienda-service.service';
+import { TiendaService } from 'app/service/tienda.service';
 import { Tienda } from 'app/model/Tienda';
+import { TokenService } from 'app/service/token.service';
 
 @Component({
   selector: 'app-tienda',
@@ -10,17 +11,35 @@ import { Tienda } from 'app/model/Tienda';
 export class TiendaComponent {
   tienda: Tienda[] = [];
 
-  constructor(private tiendaS: TiendaServiceService) {}
+  constructor(private tiendaS: TiendaService, private tokenService: TokenService) {}
+  isLogged = false;
 
   ngOnInit(): void{
-    this.getTienda();
+    this.cargarTienda();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
-  getTienda(): void{
-    this.tiendaS.getTienda().subscribe(
+  cargarTienda(): void{
+    this.tiendaS.lista().subscribe(
       data => {
         this.tienda = data;
       }
     )
+  }
+
+  delete(id?: number){
+    if(id != undefined){
+      this.tiendaS.delete(id).subscribe(
+        data => {
+          this.cargarTienda();
+        }, err => {
+          alert("No se pudo eliminar");
+        }
+      )
+    }
   }
 }
