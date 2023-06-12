@@ -10,10 +10,12 @@ import { TerminosycondicinonesComponent } from './terminosycondicinones/terminos
 import { TiendaComponent } from './tienda/tienda.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NewTiendaComponent } from './tienda/new-tienda/new-tienda.component';
+import { EditTiendaComponent } from './tienda/edit-tienda/edit-tienda.component';
 
 
 @NgModule({
-    declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent],
+    declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent, NewTiendaComponent, EditTiendaComponent],
     imports: [
         CommonModule,
         PagesRoutingModule,
