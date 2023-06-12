@@ -15,7 +15,7 @@ export class TiendaComponent {
   isLogged = false;
 
   ngOnInit(): void{
-    this.cargarTienda();
+    this.getTienda();
     if(this.tokenService.getToken()){
       this.isLogged = true;
     } else {
@@ -23,8 +23,8 @@ export class TiendaComponent {
     }
   }
 
-  cargarTienda(): void{
-    this.tiendaS.lista().subscribe(
+  getTienda(): void{
+    this.tiendaS.cargarTienda().subscribe(
       data => {
         this.tienda = data;
       }
@@ -35,7 +35,7 @@ export class TiendaComponent {
     if(id != undefined){
       this.tiendaS.delete(id).subscribe(
         data => {
-          this.cargarTienda();
+          this.getTienda();
         }, err => {
           alert("No se pudo eliminar");
         }

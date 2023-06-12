@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Jwt } from 'app/model/Jwt';
-import { LoginUsuario } from 'app/model/Login-usuario';
+import { LoginUsuario } from 'app/model/Login';
 import { NuevoUsuario } from 'app/model/Nuevo-usuario';
 
 @Injectable({

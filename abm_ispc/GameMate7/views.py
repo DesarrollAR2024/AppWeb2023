@@ -23,12 +23,12 @@ class UsuariosViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class verProductos(viewsets.ModelViewSet):
-    # permission_classes = [AllowAny]
-    permission_classes = [IsAuthenticated]
+class verProductos(viewsets.ReadOnlyModelViewSet):
+    permission_classes = [AllowAny]
+    #permission_classes = [IsAuthenticated]
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
-    http_method_names = ['get']
+    #http_method_names = ['get']
 
 
 class agregarProducto(generics.ListCreateAPIView):

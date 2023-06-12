@@ -11,7 +11,7 @@ export class TiendaService {
 
   constructor(private http:HttpClient) { }
 
-  public lista(): Observable<Tienda[]>{
+  public cargarTienda(): Observable<Tienda[]>{
     return this.http.get<Tienda[]>(this.url);
   }
 
