@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginUsuario } from 'app/model/Login';
 import { AuthService } from 'app/service/auth.service';
-import { Usuario, UsuarioService } from 'app/service/usuario.service';
+import { TokenService } from 'app/service/token.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -10,17 +12,22 @@ import { Usuario, UsuarioService } from 'app/service/usuario.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario: Usuario = new Usuario();
+  isLogged = false;
+  isLogginFail = false;
   form: FormGroup;
-  [x: string]: any;
+  loginUsuario!: LoginUsuario;
+  email!: string;
+  password!: string;
+  roles: string[] = [];
+  errMsj!: string;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private tokenService: TokenService){
     this.form= this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
       password:['',[Validators.required, Validators.minLength(8)]]
     })
   }
-  
+
   get Password(){
     return this.form.get("password");
   }
@@ -37,30 +44,38 @@ export class LoginComponent implements OnInit {
   get EmailValid()
   {
     return this.Email?.touched && !this.Email?.valid;
-  }   
+  } 
 
-  ngOnInit(){
-  
-  }
-  
-  onEnviar(event: Event, usuario: Usuario): void{
-    event.preventDefault;
-    this.authService.login(this.usuario)
-    .subscribe(
-      data => {
-      console.log("DATA" + JSON.stringify(data));
-
-      this.router.navigate(['']);
-    },
-    error => {
-      this['error'] = error;
-    });
-    if (this.form.valid){
-      alert("Enviar al servidor...")
-    } else {
-      this.form.markAllAsTouched();
+  ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLogginFail = false;
+      this.roles = this.tokenService.getAuthorities();
     }
   }
 
-  
+  onLogin(): void{
+    this.loginUsuario = new LoginUsuario(this.email, this.password); 
+    this.authService.login(this.loginUsuario).subscribe(data => {
+      this.isLogged = true;
+      this.isLogginFail = false;
+      this.tokenService.setToken(data.token);
+      this.tokenService.setUserName(data.nombreUsuario);
+      this.tokenService.setAuthorities(data.authorities);
+      this.roles = data.authorities;
+      window.location.replace('');
+      this.router.navigate(['']);
+    }, err => {
+      this.isLogged = false;
+      this.isLogginFail = true;
+      this.errMsj = err.error.mensaje;
+      console.log(this.errMsj);
+    })
+  }
+
+  onLogOut():void{
+    this.tokenService.logOut();
+    window.location.reload();
+  }
+    
 }

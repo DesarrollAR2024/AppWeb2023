@@ -29,10 +29,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="boton-header" routerLink="/registro">REGISTRO</a>
+                        <a class="boton-header" routerLink="/registro" *ngIf="!isLogged">REGISTRO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="boton-header" routerLink="/login" >INICIO SESION</a>
+                        <a class="boton-header" (click)="login()" *ngIf="!isLogged">INICIO SESION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="boton-header" (click)="onLogOut()" *ngIf="isLogged">CERRAR SESION</a>
                     </li>
                 </ul>
             </div>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { DashboardIndexComponent } from './dashboard-index/dashboard-index.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -9,6 +8,8 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ProductoComponent } from './producto/producto.component';
 import { TiendaComponent } from './tienda/tienda.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { NewTiendaComponent } from './tienda/new-tienda/new-tienda.component';
+import { EditTiendaComponent } from './tienda/edit-tienda/edit-tienda.component';
 
 const routes: Routes = [
   { path: '', component: DashboardIndexComponent },
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'producto', component: ProductoComponent },
   { path: 'tienda', component: TiendaComponent},
-  { path: 'nosotros', component: NosotrosComponent}
+  { path: 'nosotros', component: NosotrosComponent},
+  { path: 'newtienda', component: NewTiendaComponent},
+  { path: 'edittienda/:id', component: EditTiendaComponent}
 ];
 
 @NgModule({
