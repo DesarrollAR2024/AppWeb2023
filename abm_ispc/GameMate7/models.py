@@ -329,8 +329,8 @@ class Producto(models.Model):
     stock = models.IntegerField()
     nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=100, null=True, blank=True)
-    Proveedor = models.ForeignKey('Proveedor', on_delete=models.CASCADE)
-    Categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
+    categoria = models.CharField(max_length=50, null=True)
+    imagen = models.CharField(max_length=500, null=True)
 
     class Meta:
         db_table = "Producto"
