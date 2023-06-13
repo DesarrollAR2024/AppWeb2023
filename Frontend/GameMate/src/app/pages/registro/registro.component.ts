@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService, Usuario } from 'app/service/usuario.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -11,64 +10,66 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent implements OnInit {
   registroForm: FormGroup;
-  usuario: Usuario = new Usuario();
+  usuarioNuevo: Usuario = new Usuario();
 
   constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
     this.registroForm = this.formBuilder.group({
+      usuario: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      nickname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[ Validators.required , Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z]).*$/)]]
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
+  ngOnInit() {}
 
-  ngOnInit() {
-
-  }
-
-  submitRegistroForm(event: Event, usuario: Usuario): void {
-    event.preventDefault;
+  submitRegistroForm(event: Event): void {
+    event.preventDefault();
 
     if (this.registroForm.valid) {
       console.log("Enviando al servidor...");
-      console.log(usuario);
-      this.usuarioService.onCrearUsuario(usuario).subscribe(
+      this.usuarioNuevo = this.registroForm.value; // Obtener el objeto Usuario del formulario
+
+      this.usuarioNuevo.is_active = false;
+      this.usuarioNuevo.is_admin = false;
+      this.usuarioNuevo.is_staff = false;
+
+      this.usuarioService.onCrearUsuario(this.usuarioNuevo).subscribe(
         data => {
-          console.log(data.id);
-          if (data.id>0)
-          {
-            alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión");
-            this.router.navigate(['/login'])
+          console.log(data);
+          if (data.id > 0) {
+            alert("El registro ha sido creado satisfactoriamente. A continuación, por favor inicie sesión.");
+            this.router.navigate(['/login']);
           }
+        },
+        error => {
+          console.log("Error al crear el usuario:", error);
         }
-      )
+      );
     } else {
       this.registroForm.markAllAsTouched();
       console.log('El formulario es inválido');
     }
   }
 
-  get Password1(){
-    return this.registroForm.get("passwword");
+  get password() {
+    return this.registroForm.get('password');
   }
 
-  get Mail(){
-    return this.registroForm.get("email");
+  get email() {
+    return this.registroForm.get('email');
   }
 
-  get Nombre(){
-    return this.registroForm.get("nombre");
+  get nombre() {
+    return this.registroForm.get('nombre');
   }
 
-  get Apellido(){
-    return this.registroForm.get("apellido");
+  get apellido() {
+    return this.registroForm.get('apellido');
   }
 
-  get Nickname(){
-    return this.registroForm.get("nickname");
+  get usuario() {
+    return this.registroForm.get('usuario');
   }
-
-
 }
