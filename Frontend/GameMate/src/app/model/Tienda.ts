@@ -1,5 +1,5 @@
 export class Tienda{
-    id?: number;
+    id!: number;
     precio: string;
     stock: number;
     nombre: string;

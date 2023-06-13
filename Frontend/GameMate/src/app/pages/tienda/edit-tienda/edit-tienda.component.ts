@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tienda } from 'app/model/Tienda';
-import { TiendaDelService } from 'app/service/tienda-del.service'; 
+import { TiendaService } from 'app/service/tienda.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-edit-tienda',
@@ -9,24 +10,26 @@ import { TiendaDelService } from 'app/service/tienda-del.service';
   styleUrls: ['./edit-tienda.component.css']
 })
 export class EditTiendaComponent implements OnInit{
-  tienda!: Tienda;
+  tienda: any = {};
 
-  constructor(private tiendaEdit: TiendaDelService, private activatedRouter: ActivatedRoute, private router: Router){}
+  constructor(private tiendaEdit: TiendaService, private activatedRoute: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void{
-    const id = this.activatedRouter.snapshot.params['id'];
+    let id = this.activatedRoute.snapshot.params['id'];
+    console.log(id);
     this.tiendaEdit.detail(id).subscribe(
       data =>{
         this.tienda = data;
       }, err =>{
-        alert("Error al modificar");
+        alert("Error al modificar algo");
+        console.log(err);
         this.router.navigate(['tienda']);
       }
     )
   }
 
   onUpdate(): void{
-    const id = this.activatedRouter.snapshot.params['id'];
+    const id = this.activatedRoute.snapshot.params['id'];
     this.tiendaEdit.update(id, this.tienda).subscribe(
       data =>{
         this.router.navigate(['tienda']);

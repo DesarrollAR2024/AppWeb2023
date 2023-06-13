@@ -8,6 +8,7 @@ import { ProductoComponent } from './pages/producto/producto.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { TerminosycondicinonesComponent } from './pages/terminosycondicinones/terminosycondicinones.component';
 import { TiendaComponent } from './pages/tienda/tienda.component';
+import { EditTiendaComponent } from './pages/tienda/edit-tienda/edit-tienda.component';
 
 const routes: Routes = [
   { path: 'pages',
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'producto', component: ProductoComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'terminosycondiciones', component: TerminosycondicinonesComponent},
-  { path: 'tienda', component: TiendaComponent}
+  { path: 'tienda', component: TiendaComponent},
+  { path: 'edittienda', component: EditTiendaComponent }
 ];
 
 @NgModule({

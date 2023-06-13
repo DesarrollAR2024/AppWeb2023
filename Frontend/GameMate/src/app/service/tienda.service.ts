@@ -8,6 +8,8 @@ import { Tienda } from 'app/model/Tienda';
 })
 export class TiendaService {
   private url = 'http://localhost:8000/api/productos/';
+  private urlEdit = 'http://localhost:8000/api/modificarproducto/';
+  private urlAdd = 'http://localhost:8000/api/agregarproducto/';
 
   constructor(private http:HttpClient) { }
 
@@ -16,18 +18,18 @@ export class TiendaService {
   }
 
   public detail(id: number): Observable<Tienda>{
-    return this.http.get<Tienda>(this.url + `detail/${id}`);
+    return this.http.get<any>(this.urlEdit + `${id}`);
   }
 
   public save(tienda: Tienda): Observable<any>{
-    return this.http.post<any>(this.url + `create`, tienda);
+    return this.http.post<any>(this.urlAdd, tienda);
   }
 
   public update(id: number, tienda: Tienda): Observable<any>{
-    return this.http.put<any>(this.url + `update/${id}`, tienda);
+    return this.http.put<any>(this.urlEdit + `${id}`, tienda);
   }
 
   public delete(id: number): Observable<any>{
-    return this.http.delete<any>(this.url + `delete/${id}`);
+    return this.http.delete<any>(this.url + id);
   }
 }

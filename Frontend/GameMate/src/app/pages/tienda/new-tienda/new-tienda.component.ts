@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Tienda } from 'app/model/Tienda';
-import { TiendaAddService } from 'app/service/tienda-add.service';
+import { TiendaService } from 'app/service/tienda.service';
 
 @Component({
   selector: 'app-new-tienda',
@@ -11,24 +11,25 @@ import { TiendaAddService } from 'app/service/tienda-add.service';
 export class NewTiendaComponent implements OnInit {
   precio: string = "";
   stock: number = 0;
-  nombre: string  = "";
-  descripcion: string  = "";
-  proveedor: string  = "";
-  categoria: string  = "";
+  nombre: string = "";
+  descripcion: string = "";
+  proveedor: string = "";
+  categoria: string = "";
 
-    constructor(private tiendaAdd: TiendaAddService, private router: Router){}
+    constructor(private tienda: TiendaService, private router: Router){}
 
     ngOnInit(): void {}
 
     onCreate(): void{
-      const tienda = new Tienda(this.precio, this.stock, this.nombre, this.descripcion, this.proveedor, this.categoria);
-      this.tiendaAdd.save(tienda).subscribe(
+      let tiendaT = new Tienda(this.precio, this.stock, this.nombre, this.descripcion, this.proveedor, this.categoria);
+      this.tienda.save(tiendaT).subscribe(
         data =>{
           alert("Producto añadido correctamente");
           this.router.navigate(['tienda']);
         }, err =>{
           alert("Falló");
           this.router.navigate(['tienda']);
+          console.log(err)
         }
       )
     }
