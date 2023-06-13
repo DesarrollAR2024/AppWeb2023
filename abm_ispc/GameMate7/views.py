@@ -23,7 +23,7 @@ class UsuariosViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class verProductos(viewsets.ModelViewSet):
+class verProductos(viewsets.ReadOnlyModelViewSet):
     # permission_classes = [AllowAny]
     permission_classes = [IsAuthenticated]
     queryset = Producto.objects.all()
@@ -52,7 +52,7 @@ class modificarProducto(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = [AllowAny]
 
 
-class verCategorias(viewsets.ModelViewSet):
+class verCategorias(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
