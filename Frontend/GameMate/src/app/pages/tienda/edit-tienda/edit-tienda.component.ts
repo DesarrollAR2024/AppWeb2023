@@ -10,7 +10,7 @@ import { map } from 'rxjs';
   styleUrls: ['./edit-tienda.component.css']
 })
 export class EditTiendaComponent implements OnInit{
-  tienda: any = {};
+  tienda!: Tienda;
 
   constructor(private tiendaEdit: TiendaService, private activatedRoute: ActivatedRoute, private router: Router){}
 
