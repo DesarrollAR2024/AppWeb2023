@@ -28,8 +28,8 @@ class UsuariosViewSet(viewsets.ModelViewSet):
 
 
 class verProductos(viewsets.ReadOnlyModelViewSet):
-    # permission_classes = [AllowAny]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
+    #permission_classes = [IsAuthenticated]
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
     http_method_names = ['get']
