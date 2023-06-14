@@ -1,18 +1,18 @@
 export class Tienda{
-    id!: number;
+    id_producto!: number;
     precio: string;
     stock: number;
     nombre: string;
     descripcion: string;
-    proveedor: string;
     categoria: string;
+    imagen: string;
 
-    constructor(precio: string, stock: number, nombre: string, descripcion: string, proveedor: string, categoria: string) {
+    constructor(precio: string, stock: number, nombre: string, descripcion: string, categoria: string, imagen: string) {
         this.precio = precio;
         this.stock = stock;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.proveedor = proveedor;
         this.categoria = categoria;
+        this.imagen = imagen;
     }
 }

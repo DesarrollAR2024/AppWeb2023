@@ -13,15 +13,15 @@ export class NewTiendaComponent implements OnInit {
   stock: number = 0;
   nombre: string = "";
   descripcion: string = "";
-  proveedor: string = "";
   categoria: string = "";
+  imagen: string = "";
 
     constructor(private tienda: TiendaService, private router: Router){}
 
     ngOnInit(): void {}
 
     onCreate(): void{
-      let tiendaT = new Tienda(this.precio, this.stock, this.nombre, this.descripcion, this.proveedor, this.categoria);
+      let tiendaT = new Tienda(this.precio, this.stock, this.nombre, this.descripcion, this.categoria, this.imagen);
       this.tienda.save(tiendaT).subscribe(
         data =>{
           alert("Producto añadido correctamente");

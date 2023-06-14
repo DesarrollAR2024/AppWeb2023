@@ -18,7 +18,7 @@
       <div class="item" *ngFor="let Tienda of tienda">
           <figure>
               <img
-                  src="{{Tienda.descripcion}}"
+                  src="{{Tienda.imagen}}"
                   alt="producto"
               />
           </figure>
@@ -27,7 +27,7 @@
               <p class="price">{{Tienda.precio}}</p>
               <button>AÑADIR AL CARRITO</button>
                 <span *ngIf="isLogged">
-                    <button class="btn btn-light" routerLink="/edittienda/{{Tienda.id}}">
+                    <button class="btn btn-light" routerLink="/edittienda/{{Tienda.id_producto}}">
                     <i class="bi bi-pencil-fill"></i></button>
                 </span>                  
           </div>
