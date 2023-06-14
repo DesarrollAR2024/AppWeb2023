@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tienda } from 'app/model/Tienda';
 import { TiendaService } from 'app/service/tienda.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-edit-tienda',
@@ -10,12 +9,12 @@ import { map } from 'rxjs';
   styleUrls: ['./edit-tienda.component.css']
 })
 export class EditTiendaComponent implements OnInit{
-  tienda: any = {};
+  tienda!: Tienda;
 
   constructor(private tiendaEdit: TiendaService, private activatedRoute: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void{
-    let id = this.activatedRoute.snapshot.params['id'];
+    const id = this.activatedRoute.snapshot.params['id'];
     console.log(id);
     this.tiendaEdit.detail(id).subscribe(
       data =>{
