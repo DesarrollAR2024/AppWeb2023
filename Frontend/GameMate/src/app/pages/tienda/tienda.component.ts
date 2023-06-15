@@ -31,7 +31,7 @@ export class TiendaComponent {
     )
   }
 
-  delete(id?: number){
+  delete(id: number){
     if(id != undefined){
       this.tiendaS.delete(id).subscribe(
         data => {

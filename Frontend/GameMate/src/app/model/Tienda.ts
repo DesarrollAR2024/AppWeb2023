@@ -1,13 +1,13 @@
 export class Tienda{
     id_producto!: number;
-    precio: string;
+    precio: number;
     stock: number;
     nombre: string;
     descripcion: string;
     categoria: string;
     imagen: string;
 
-    constructor(precio: string, stock: number, nombre: string, descripcion: string, categoria: string, imagen: string) {
+    constructor(precio: number, stock: number, nombre: string, descripcion: string, categoria: string, imagen: string) {
         this.precio = precio;
         this.stock = stock;
         this.nombre = nombre;

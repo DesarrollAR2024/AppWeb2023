@@ -12,11 +12,11 @@
                 </div>
                 <div class="form-group">
                     <label for="stock">Stock del Producto</label>
-                    <input type="text" class="form-control" id="stock" name="stock" [(ngModel)]="tienda.stock" required>
+                    <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="tienda.stock" required>
                 </div>
                 <div class="form-group">
                     <label for="precio">Precio del Producto</label>
-                    <input type="text" class="form-control" id="precio" name="precio" [(ngModel)]="tienda.precio" required>
+                    <input type="number" class="form-control" id="precio" name="precio" [(ngModel)]="tienda.precio" required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoria</label>
@@ -27,7 +27,7 @@
                     <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="tienda.imagen" required>
                 </div>
                 <button class="btn btn-primary">
-                    Agregar Producto
+                    Modificar Producto
                 </button>
                 <button (click)="cancelar" class="btn btn-secondary">
                     Cancelar

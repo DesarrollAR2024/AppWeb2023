@@ -25,8 +25,8 @@ export class TiendaService {
     return this.http.post<any>(this.urlAdd, tienda);
   }
 
-  public update(id: number, tienda: Tienda): Observable<any>{
-    return this.http.put<any>(this.urlEdit + `${id}`, tienda);
+  public update(id_producto: number, tienda: Tienda): Observable<any>{
+    return this.http.put<any>(this.urlEdit + `${id_producto}/`, tienda);
   }
 
   public delete(id: number): Observable<any>{
