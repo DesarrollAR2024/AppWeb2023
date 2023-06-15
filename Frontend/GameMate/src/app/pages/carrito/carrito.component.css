@@ -1,5 +1,6 @@
 .mercadoPagoContainer {
-    display: flex;
+    display: none;
     justify-content: center;
-    margin-top: 5em;
+    flex-direction: column;
+    margin: 5rem 20% 0 20%;
 }

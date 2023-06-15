@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@mercadopago/sdk-js": "^0.0.2",
-    "bootstrap": "^5.2.3",
     "json-server": "^0.17.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

@@ -7,7 +7,17 @@ import { Component } from '@angular/core';
 })
 export class CarritoComponent {
   scriptElement: HTMLScriptElement;
-  constructor(){
+  mostrarMecadoPago() {
+    const mercadoPago = document.getElementById("mercadoPagoContainer")
+    if (mercadoPago) mercadoPago.style.display = "flex";
+  }
+
+  ocultarMercadoPago() {
+    const mercadoPago = document.getElementById("mercadoPagoContainer")
+    if (mercadoPago) mercadoPago.style.display = "none";
+  }
+
+  constructor() {
     this.scriptElement = document.createElement("script");
     this.scriptElement.src = "assets/MercadoPago.js";
     document.body.appendChild(this.scriptElement);
