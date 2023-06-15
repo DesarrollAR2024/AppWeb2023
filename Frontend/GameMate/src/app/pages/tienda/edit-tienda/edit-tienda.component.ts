@@ -9,7 +9,7 @@ import { TiendaService } from 'app/service/tienda.service';
   styleUrls: ['./edit-tienda.component.css']
 })
 export class EditTiendaComponent implements OnInit{
-  tienda!: Tienda;
+  tienda: any={};
 
   constructor(private tiendaEdit: TiendaService, private activatedRoute: ActivatedRoute, private router: Router){}
 
@@ -35,6 +35,7 @@ export class EditTiendaComponent implements OnInit{
       }, err =>{
         alert("Error al modificar el producto");
         this.router.navigate(['tienda'])
+        console.log(err);
       }
     )
   }

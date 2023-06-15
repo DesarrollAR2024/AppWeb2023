@@ -9,7 +9,7 @@ import { TiendaService } from 'app/service/tienda.service';
   styleUrls: ['./new-tienda.component.css']
 })
 export class NewTiendaComponent implements OnInit {
-  precio: string = "";
+  precio: number = 0;
   stock: number = 0;
   nombre: string = "";
   descripcion: string = "";
@@ -20,19 +20,19 @@ export class NewTiendaComponent implements OnInit {
 
   ngOnInit(): void {}
 
-    onCreate(): void{
-      let tiendaT = new Tienda(this.precio, this.stock, this.nombre, this.descripcion, this.categoria, this.imagen);
-      this.tienda.save(tiendaT).subscribe(
-        data =>{
-          alert("Producto añadido correctamente");
-          this.router.navigate(['tienda']);
-        }, err =>{
-          alert("Falló");
-          this.router.navigate(['tienda']);
-          console.log(err)
-        }
-      )
-    }
+  onCreate(): void{
+    let tiendaT = new Tienda(this.precio, this.stock, this.nombre, this.descripcion, this.categoria, this.imagen);
+    this.tienda.save(tiendaT).subscribe(
+      data =>{
+        alert("Producto añadido correctamente");
+        this.router.navigate(['tienda']);
+      }, err =>{
+        alert("Falló");
+        this.router.navigate(['tienda']);
+        console.log(err)
+      }
+    )
+  }
 
   cancelar(){
     this.router.navigate(['tienda']);
