@@ -9,7 +9,7 @@ export class Usuario {
   nickname: string = "";
   email: string = "";
   password: string = "";
-  is_active: boolean = false;
+  is_active: boolean = true;
   is_admin: boolean = false;
   is_staff: boolean = false;
 }

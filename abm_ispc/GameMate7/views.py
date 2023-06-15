@@ -39,8 +39,8 @@ class agregarProducto(generics.ListCreateAPIView):
     queryset = Producto.objects.all()
     serializer_class = AgregarProductoSerializer
     http_method_names = ['get', 'post']
-    permission_classes = [IsAdminUser]
-    # permission_classes = [AllowAny]
+   # permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
 
     def get_objet(self):
         queryset = self.get_queryset()
@@ -52,8 +52,8 @@ class agregarProducto(generics.ListCreateAPIView):
 class modificarProducto(generics.RetrieveUpdateDestroyAPIView):
     queryset = Producto.objects.all()
     serializer_class = AgregarProductoSerializer
-    permission_classes = [IsAdminUser]
-    # permission_classes = [AllowAny]
+    #permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
 
 
 class verCategorias(viewsets.ReadOnlyModelViewSet):
