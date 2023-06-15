@@ -1,3 +1,11 @@
+
+:root {
+    --fuente-primaria: 'Orbitron', sans-serif;
+    --fuente-segundaria: monospace, sans-serif;
+    --primario: #19122F;
+    --blanco: #FFFFFF;
+  }
+
 * {
     margin:0;
     padding: 0;
@@ -79,5 +87,75 @@
 .boton-header span {
     position: absolute;
 }
+
+.container-icon{
+    position: relative;
+    margin-right: 50px;
+}
+
+.container-icon{
+    position: relative;
+    margin-right: 50px;
+}
+
+/* Main */
+.container-items{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem,1fr));
+    gap: 3rem;
+    margin: 10px 15px 50px;
+}
+
+.item{
+    border-radius: 10px;
+}
+
+.item:hover{
+    box-shadow:0 0 2px #fff, 0 0 10px #fff, 0 0 20px #4CE9F3, 0 0 20px #4CE9F3,
+    0 0 30px #4CE9F3, 0 0 40px #4CE9F3;
+}
+
+.item img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    /*border-radius: 10px 10px 0 0;*/
+    transition: all .5s;
+}
+
+.item figure{
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.item:hover img{
+    transform: scale(1.2);
+}
+
+.info-product{
+    padding: 15px 30px;
+    line-height: 2;
+    color: var(#FFFFFF);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price{
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.info-product button{
+    border-radius: 10px;
+    border-style: solid;
+    background: none;
+    background-color: #000;
+    color: var(#FFFFFF);
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+
 
 

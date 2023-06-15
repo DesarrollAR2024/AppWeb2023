@@ -10,6 +10,7 @@ import { TiendaComponent } from './tienda/tienda.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { NewTiendaComponent } from './tienda/new-tienda/new-tienda.component';
 import { EditTiendaComponent } from './tienda/edit-tienda/edit-tienda.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 const routes: Routes = [
   { path: '', component: DashboardIndexComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'tienda', component: TiendaComponent},
   { path: 'nosotros', component: NosotrosComponent},
   { path: 'newtienda', component: NewTiendaComponent},
+  { path: 'carrito', component: CarritoComponent},
   { path: 'edittienda/:id', component: EditTiendaComponent}
 ];
 

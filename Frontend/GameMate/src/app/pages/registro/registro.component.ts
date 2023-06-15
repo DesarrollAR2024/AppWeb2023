@@ -31,7 +31,7 @@ export class RegistroComponent implements OnInit {
       console.log("Enviando al servidor...");
       this.usuarioNuevo = this.registroForm.value; // Obtener el objeto Usuario del formulario
 
-      this.usuarioNuevo.is_active = false;
+      this.usuarioNuevo.is_active = true;
       this.usuarioNuevo.is_admin = false;
       this.usuarioNuevo.is_staff = false;
 
