@@ -19,7 +19,7 @@ export class EditTiendaComponent implements OnInit{
       data =>{
         this.tienda = data;
       }, err =>{
-        alert("Error al modificar algo");
+        alert("Error al modificar");
         this.router.navigate(['tienda']);
       }
     )
