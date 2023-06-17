@@ -325,7 +325,7 @@ class Pedido(models.Model):
 
 class Producto(models.Model):
     id_producto = models.AutoField(primary_key=True)
-    precio = models.DecimalField(max_digits=5, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
     nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=100, null=True, blank=True)

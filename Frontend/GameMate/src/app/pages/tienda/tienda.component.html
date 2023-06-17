@@ -2,7 +2,7 @@
   <header>
       <h1>NUESTROS PRODUCTOS</h1>
       <span routerLink="/newtienda" *ngIf="isLogged">
-        <button type="button" class="btn btn-dark">
+        <button type="button" id="agregarProducto" class="btn btn-dark">
             Agregar Producto
         </button>
         <br><br>
@@ -16,7 +16,7 @@
   </header>
   <div class="container-items">
       <div class="item" *ngFor="let Tienda of tienda">
-          <figure>
+          <figure routerLink="/producto/{{Tienda.id_producto}}">
               <img
                   src="{{Tienda.imagen}}"
                   alt="producto"
@@ -24,7 +24,7 @@
           </figure>
           <div class="info-product">
               <h2>{{Tienda.nombre}}</h2>
-              <p class="price">{{Tienda.precio}}</p>
+              <p class="price">${{Tienda.precio}}</p>
               <button>AÑADIR AL CARRITO</button>
                 <div *ngIf="isLogged">
                     <button class="btn btn-light" routerLink="/edittienda/{{Tienda.id_producto}}">
@@ -33,5 +33,4 @@
           </div>
       </div>
   </div>
-
 </body>

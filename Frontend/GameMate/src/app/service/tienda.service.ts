@@ -29,7 +29,4 @@ export class TiendaService {
     return this.http.put<any>(this.urlEdit + `${id_producto}/`, tienda);
   }
 
-  public delete(id: number): Observable<any>{
-    return this.http.delete<any>(this.url + id);
-  }
 }
