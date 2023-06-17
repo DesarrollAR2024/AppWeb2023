@@ -29,7 +29,6 @@ export class NewTiendaComponent implements OnInit {
       }, err =>{
         alert("Falló");
         this.router.navigate(['tienda']);
-        console.log(err)
       }
     )
   }

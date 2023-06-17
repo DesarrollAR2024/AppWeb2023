@@ -1,17 +1,17 @@
 <div class="contenedor">
-  <div class="item" *ngFor="let Producto of producto">
+  <div class="item">
     <figure>
-      <h1>{{ Producto.nombre }}</h1>
+      <h1>{{ producto.nombre }}</h1>
 
       <div class="camisa">
         <img
           class="camisa__imagen"
-          src="{{ Producto.imagen }}"
+          src="{{ producto.imagen }}"
           alt="Imagen del Producto"
         />
 
         <div class="camisa__contenido">
-          <p>{{ Producto.descripcion }}</p>
+          <p>{{ producto.descripcion }}</p>
 
           <form class="formulario">
             <select class="formulario__campo">

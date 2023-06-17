@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'terminos', component: TerminosycondicinonesComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'producto', component: ProductoComponent },
+  { path: 'producto/:id', component: ProductoComponent },
   { path: 'tienda', component: TiendaComponent},
   { path: 'nosotros', component: NosotrosComponent},
   { path: 'newtienda', component: NewTiendaComponent},
