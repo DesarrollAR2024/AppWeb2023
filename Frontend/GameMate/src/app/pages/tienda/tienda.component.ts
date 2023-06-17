@@ -30,16 +30,4 @@ export class TiendaComponent {
       }
     )
   }
-
-  delete(id: number){
-    if(id != undefined){
-      this.tiendaS.delete(id).subscribe(
-        data => {
-          this.getTienda();
-        }, err => {
-          alert("No se pudo eliminar");
-        }
-      )
-    }
-  }
 }

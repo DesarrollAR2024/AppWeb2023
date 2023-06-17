@@ -15,13 +15,11 @@ export class EditTiendaComponent implements OnInit{
 
   ngOnInit(): void{
     const id = this.activatedRoute.snapshot.params['id'];
-    console.log(id);
     this.tiendaEdit.detail(id).subscribe(
       data =>{
         this.tienda = data;
       }, err =>{
-        alert("Error al modificar algo");
-        console.log(err);
+        alert("Error al modificar");
         this.router.navigate(['tienda']);
       }
     )
@@ -35,7 +33,6 @@ export class EditTiendaComponent implements OnInit{
       }, err =>{
         alert("Error al modificar el producto");
         this.router.navigate(['tienda'])
-        console.log(err);
       }
     )
   }
