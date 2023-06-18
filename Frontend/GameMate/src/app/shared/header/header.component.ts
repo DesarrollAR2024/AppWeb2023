@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarritoService } from 'app/service/carrito.service';
 import { TokenService } from 'app/service/token.service';
 
 @Component({
@@ -9,24 +10,28 @@ import { TokenService } from 'app/service/token.service';
 })
 export class HeaderComponent implements OnInit {
   isLogged = false;
-
-  constructor(private router: Router, private tokenService: TokenService){}
+  public totalTienda: number = 0;
+  constructor(private router: Router, private tokenService: TokenService, private carritoService: CarritoService) { }
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
+    if (this.tokenService.getToken()) {
       this.isLogged = true;
-    }else{
+    } else {
       this.isLogged = false;
     }
+    this.carritoService.getTienda()
+      .subscribe(res => {
+        this.totalTienda = res.length;
+      })
   }
 
-  onLogOut():void{
+  onLogOut(): void {
     this.tokenService.logOut();
     window.location.reload();
   }
 
-  login(){
+  login() {
     this.router.navigate(['/login'])
   }
-  
+
 }

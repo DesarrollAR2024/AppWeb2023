@@ -31,7 +31,8 @@
                         <a class="boton-header" (click)="onLogOut()" *ngIf="isLogged">CERRAR SESION</a>
                     </li>
                     <li class="d-flex">
-                        <a class="nav-link d-flex justify-content-center align-items-center ms-3 " routerLink="/carrito"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 2.3rem;"></i></a>
+                        <a class="nav-link d-flex justify-content-center align-items-center ms-3 " routerLink="/carrito"><i class="fa fa-cart-plus" aria-hidden="true" style="font-size: 25px;"></i></a>
+                        <div style="font-size: 15px;" class="badge bg-ligth">{{totalTienda}}</div>
                     </li>
                 </ul>
             </div>

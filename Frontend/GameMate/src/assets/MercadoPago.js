@@ -26,12 +26,12 @@ const renderCardPaymentBrick = async (bricksBuilder) => {
         //  ejemplo de envío de los datos recolectados por el Brick a su servidor
         return new Promise((resolve, reject) => {
           fetch("/process_payment", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(cardFormData)
-          })
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(cardFormData)
+            })
             .then((response) => {
               // recibir el resultado del pago
               resolve();
