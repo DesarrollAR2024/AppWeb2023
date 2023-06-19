@@ -7,9 +7,13 @@ Dentro de la plataforma tambien encontrarán  una sección exclusiva para resolv
 
 # Instalación
 Para correr el Proyecto debemos de pararnos en la rama Frontend:
+
 cd Frontend 
+
 cd GameMate
+
 Instalar las dependencias:
+
 npm install
 
 // ó
