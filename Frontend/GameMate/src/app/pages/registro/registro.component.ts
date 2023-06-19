@@ -38,12 +38,10 @@ export class RegistroComponent implements OnInit {
       this.usuarioService.onCrearUsuario(this.usuarioNuevo).subscribe(
         data => {
           console.log(data);
-          if (data.id > 0) {
+          (data.id > 0)
             alert("El registro ha sido creado satisfactoriamente. A continuación, por favor inicie sesión.");
             this.router.navigate(['/login']);
-          }
-        },
-        error => {
+          }, error => {
           console.log("Error al crear el usuario:", error);
         }
       );

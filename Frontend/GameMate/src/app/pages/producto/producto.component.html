@@ -13,6 +13,8 @@
         <div class="camisa__contenido">
           <p>{{ producto.descripcion }}</p>
 
+          <p>Precio: ${{ producto.precio }}  |  Stock: {{producto.stock}}</p>
+
           <form class="formulario">
             <select class="formulario__campo">
               <option disabled selected>-- Seleccionar Talla --</option>
@@ -25,11 +27,13 @@
               type="number"
               placeholder="Cantidad"
               min="1"
+              max="{{producto.stock}}"
             />
             <input
+              routerLink="/tienda/"
               class="formulario__submit"
               type="submit"
-              value= "Agregar al Carrito" 
+              value= "Volver a la Tienda" 
             />
           </form>
         </div>
