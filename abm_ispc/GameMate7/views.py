@@ -7,8 +7,7 @@ from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion, Custo
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-#MERCADO PAGO
-import mercadopago
+
 import json
 from django.shortcuts import get_object_or_404
 
@@ -165,7 +164,6 @@ class ProcessPaymentAPIView(APIView):
                 },
             }
 
-            sdk = mercadopago.SDK("")
 
             payment_response = sdk.payment().create(payment_data)
 
