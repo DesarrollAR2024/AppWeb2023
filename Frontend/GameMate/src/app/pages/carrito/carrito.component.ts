@@ -56,6 +56,7 @@ export class CarritoComponent implements OnInit {
               if (details.status === 'COMPLETED') {
                 this.carritoServicio.transactionID = details.id;
                 this.router.navigate(['confirmacion']);
+                console.log(details)
               }
             })
           },

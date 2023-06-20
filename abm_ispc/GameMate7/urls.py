@@ -1,8 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from GameMate7 import views
-from .views import LoginView, LogoutView, SignupView, ProfileView, ListarUsuarios, agregarProducto, modificarProducto, modificarUsuario, customjsonybajarstock, retornarPagado
-
+from .views import LoginView, LogoutView, SignupView, ProfileView, ListarUsuarios, agregarProducto, modificarProducto, modificarUsuario
 router = routers.DefaultRouter()
 # router.register(r'usuarios', views.UsuariosViewSet)
 router.register(r'productos', views.verProductos)
@@ -32,10 +31,7 @@ urlpatterns = [
         modificarProducto.as_view(), name='modificar_producto'),
     path('agregarproducto/', 
         agregarProducto.as_view(), name='agregar_producto'),
-    path ('retornarPagado/',
-        retornarPagado.as_view(), name='retornarPagado'),
-    path('actualizarstock/<int:pk>/<int:cantidad>', 
-         customjsonybajarstock.as_view(), name='customjsonybajarstock'),
+    
 
 ]
 
