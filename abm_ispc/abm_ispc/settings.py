@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PAYPAL_TEST= True
+
 
 # Application definition
 
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_rest_passwordreset',
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    'paypal.standard.ipn'
 
 ]
 

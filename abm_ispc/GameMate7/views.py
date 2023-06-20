@@ -7,6 +7,9 @@ from .models import Usuarios, Producto, Categoria, Proveedor, Facturacion, Custo
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.urls import reverse
+# se agrega paypal
+from paypal.standard.forms import PayPalPaymentsForm
 
 import json
 from django.shortcuts import get_object_or_404
@@ -145,55 +148,17 @@ class modificarUsuario(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAdminUser]
     # permission_classes = [AllowAny]
 
-class ProcessPaymentAPIView(APIView):
-    def post(self, request):
-        try:
-            request_values = json.loads(request.body)
-            payment_data = {
-                "transaction_amount": float(request_values["transaction_amount"]),
-                "token": request_values["token"],
-                "installments": int(request_values["installments"]),
-                "payment_method_id": request_values["payment_method_id"],
-                "issuer_id": request_values["issuer_id"],
-                "payer": {
-                    "email": request_values["payer"]["email"],
-                    "identification": {
-                        "type": request_values["payer"]["identification"]["type"],
-                        "number": request_values["payer"]["identification"]["number"],
-                    },
-                },
-            }
+def home(request):
+    paypal_dict= {
+        'business': 'id@business.example.com',
+        'amount': '1.00',
+        'currency_code': 'GBP',
+        'item_name': 'book',
+        'notify_url': request.build_absolute_uri(reverse('paypal-ipn')),
+        'return':request.build_absolute_uri(reverse('successful')),
+        'cancel_return':request.build_absolute_uri(reverse('cancelled')),
+    }
 
-
-            payment_response = sdk.payment().create(payment_data)
-
-            payment = payment_response["response"]
-            status = {
-                "id": payment["id"],
-                "status": payment["status"],
-                "status_detail": payment["status_detail"],
-            }
-
-            return Response(data={"body": status, "statusCode": payment_response["status"]}, status=201)
-        except Exception as e:
-            return Response(data={"body": payment_response}, status=400)
-
-class retornarPagado(APIView):  # Retornar custom json 
-    def get(self, request):
-        return Response({"respuesta": "aprobado"})
-    
-
-#Return Custom json, reduzca el stock segun lo enviado.
-class customjsonybajarstock(APIView):
-    permission_classes = [IsAdminUser] #Solo permito admins.
-    def patch(self, request, pk, cantidad): #Utilizo patch para la modificacion parcial.
-        model = get_object_or_404(Producto, pk=pk) #Pido el objeto mandandole el ID. 
-        data = {"cantidad": model.cantidad - int(cantidad)} #Del json, le resto la cantidad.
-        serializer = ProductoSerializer(model, data=data, partial=True) #Paso la data al serializer.
-
-        if serializer.is_valid(): #Si es valido lo que mande
-            serializer.save() #Guardo el response (va a mandar el json del producto con la cantidad actualizada)
-            agregarcustomjson={"respuesta": "aprobado"}
-            agregarcustomjson.update(serializer.data)  #A ese json anterior, le agrego la respuesta de la transaccion.
-            return Response(agregarcustomjson)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    form= PayPalPaymentsForm(initial=paypal_dict)
+    context= {'form': form}
+    return render(request, 'index.html', context)
