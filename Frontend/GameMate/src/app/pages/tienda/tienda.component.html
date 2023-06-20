@@ -24,6 +24,8 @@
                 <div *ngIf="isLogged">
                     <button class="btn btn-light" routerLink="/edittienda/{{Tienda.id_producto}}">
                     <i class="bi bi-pencil-fill"></i></button>
+                    <button class="btn btn-danger" (click)="delete(Tienda.id_producto)">
+                        <i class="bi bi-trash-fill"></i></button>
                 </div>                  
           </div>
       </div>

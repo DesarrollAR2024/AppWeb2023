@@ -29,7 +29,7 @@ export class TiendaComponent {
       });
     }
   }
-
+  
   getTienda(): void {
     this.tiendaS.cargarTienda().subscribe(
       data => {
@@ -37,9 +37,30 @@ export class TiendaComponent {
           this.tienda.push({ ...element, cantidad: 0 });
         });
       }
-    )
-  }
+      )
+    }
+    
   addcart(tienda: any) {
     this.carritoService.addtoCart(tienda);
+  }
+  
+  delete(id?: number){
+    if(id != undefined){
+      this.tiendaS.delete(id).subscribe(
+        data => {
+          this.tiendaElim();
+        }, err => {
+          alert("No se pudo eliminar");
+        }
+        )
+      }
+    }
+
+  tiendaElim(): void{
+  this.tiendaS.cargarTienda().subscribe(
+      data => {
+        this.tienda = data;
+      }
+    )
   }
 }

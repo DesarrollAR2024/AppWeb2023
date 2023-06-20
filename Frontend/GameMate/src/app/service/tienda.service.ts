@@ -28,4 +28,8 @@ export class TiendaService {
   public update(id_producto: number, tienda: Tienda): Observable<any>{
     return this.http.put<any>(this.urlEdit + `${id_producto}/`, tienda);
   }
+
+  public delete(id_producto: number): Observable<any>{
+    return this.http.delete<any>(this.urlEdit + `${id_producto}/`);
+  }
 }
