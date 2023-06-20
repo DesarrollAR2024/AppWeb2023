@@ -21,7 +21,10 @@ export class HeaderComponent implements OnInit {
     }
     this.carritoService.getTienda()
       .subscribe(res => {
-        this.totalTienda = res.length;
+        this.totalTienda = 0;
+        res.forEach((a: any) => {
+          this.totalTienda += (a.cantidad + 1)
+        })
       })
   }
 

@@ -1,4 +1,4 @@
-export class Tienda{
+export class Tienda {
     id_producto!: number;
     precio: number;
     stock: number;
@@ -6,6 +6,7 @@ export class Tienda{
     descripcion: string;
     categoria: string;
     imagen: string;
+    cantidad: number;
 
     constructor(precio: number, stock: number, nombre: string, descripcion: string, categoria: string, imagen: string) {
         this.precio = precio;
@@ -14,5 +15,6 @@ export class Tienda{
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.imagen = imagen;
+        this.cantidad = 0;
     }
 }

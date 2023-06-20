@@ -10,6 +10,7 @@ import { TerminosycondicinonesComponent } from './pages/terminosycondicinones/te
 import { TiendaComponent } from './pages/tienda/tienda.component';
 import { EditTiendaComponent } from './pages/tienda/edit-tienda/edit-tienda.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { ConfirmacionComponent } from './pages/confirmacion/confirmacion.component';
 const routes: Routes = [
   {
     path: 'pages',
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'terminosycondiciones', component: TerminosycondicinonesComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'edittienda', component: EditTiendaComponent },
-  { path: 'carrito', component: CarritoComponent }
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'confirmacion', component: ConfirmacionComponent }
 ];
 
 @NgModule({

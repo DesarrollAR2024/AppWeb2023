@@ -23,15 +23,19 @@ export class TiendaComponent {
     } else {
       this.isLogged = false;
     }
-    this.TiendaList.forEach((a: any) => {
-      Object.assign(a, { cantidad: 1, total: a.precio });
-    });
+    if (this.TiendaList) {
+      this.TiendaList.forEach((a: any) => {
+        Object.assign(a, { cantidad: 1, total: a.precio });
+      });
+    }
   }
 
   getTienda(): void {
     this.tiendaS.cargarTienda().subscribe(
       data => {
-        this.tienda = data;
+        data.forEach((element, i) => {
+          this.tienda.push({ ...element, cantidad: 0 });
+        });
       }
     )
   }

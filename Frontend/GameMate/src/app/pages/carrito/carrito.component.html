@@ -1,57 +1,55 @@
 <ng-container *ngIf="Tienda.length !=0">
-    <div class="container">
+<div class="main-container">
     <div class="card-table">
         <div class="cart-product">
             <table class="table table-responsive">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Imagen Producto</th>
-                        <th>Descripcion</th>
+                        <th ></th>
+                        <th colspan="2" style="padding-left: 24px;">Producto</th>
                         <th>Precio</th>
-                        <th>cantidad</th>
+                        <th>Cantidad</th>
                         <th>Total</th>
-                        <th>Accion</th>
+                        <th><button (click)="emptycarrito()" class="btn btn-secondary btn-lg"><i class="fas fa-trash"></i></button></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let tienda of Tienda; let i = index">
-                        <td >{{tienda.nombre}}</td>
-                        <td><img style="width: 120px;" src="{{tienda.imagen}}" alt=""></td>
-                        <td style="width: 25%;">{{tienda.descripcion}}</td>
-                        <td style="width: 12%;">{{tienda.precio}}</td>
-                        <td style="width: 12%;">{{tienda.cantidad}}</td>
-                        <td style="width: 12%;">{{tienda.total}}</td>
+                        <td><img style="width: 150px;" src="{{tienda.imagen}}" alt=""></td>
+                        <td colspan="2">
+                            <div class="tdNombre">
+                                <span>{{tienda.nombre}}</span>
+                                <span class="tdDescripcion">{{tienda.descripcion}}</span>
+                            </div>
+                        </td>
+                        <td style="width: 12%;">$ {{tienda.precio}}</td>
+                        <td style="width: 12%;">{{tienda.cantidad + 1}}</td>
+                        <td style="width: 12%;">$ {{getProductoTotal(tienda)}}</td>
                         <td>
                             <button (click)="removeproducto(tienda)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>                       
                     </tr>
                     <tr> 
-                        <td colspan="4"> </td>
-                        <td> <button (click)="emptycarrito()" class="btn btn-danger"> Vaciar Carrito</button></td>
-                        <td> <button routerLink="/tienda" class ="btn btn-info">Seguir Comprando</button></td>
-                        <td> <button (click)="mostrarMecadoPago()" class="btn btn-primary">Finalizar Compra</button></td>
-                        <td><strong> Total de Carrito : ${{grandTotal}} </strong></td>
-                          
+                        <td colspan="5"> </td>
+                        <td colspan="2" style="text-align: end; padding-right: 5%;"><strong> Total: ${{grandTotal}} </strong></td> 
                     </tr>
                 </tbody> 
             </table>
         </div>
     </div>
+    <div class="d-flex w-100 justify-content-end mt-4">
+        <button (click)="mostrarPaypal()" class="btn btn-primary btn-lg">Finalizar Compra</button>
+    </div>
 </div>
-
 </ng-container>
 
-<div class="mercadoPagoContainer" id="mercadoPagoContainer">
-    <div style="align-self: flex-end;">
-        <button class="btn close" style="color: white;" (click)="ocultarMercadoPago()">
-            <i class="bi-x" style="font-size: 22px;"></i>
-        </button>
-    </div>
-    <div id="cardPaymentBrick_container"></div>
+<div class="paypal-container" id="paypal">
+    <div #paymentRef></div>
+    <button class="btn btn-danger btn-lg" (click)="ocultarPaypal()">Cancelar Compra</button>
 </div>
+
 <ng-container *ngIf="Tienda.length ==0">
-    <div class="container">
+    <div class="main-container">
         <div class="card">
             <h1 class="card-tittle"> Mi Carrito </h1>
         </div>
@@ -63,30 +61,3 @@
         </div>
     </div>
 </ng-container>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div>
-
-    <button class="btn btn-primary" (click)="mostrarMecadoPago()">
-        Finalizar Pago
-    </button>
-    
-    <div class="mercadoPagoContainer" id="mercadoPagoContainer">
-        <div style="align-self: flex-end;">
-            <button class="btn close" style="color: white;" (click)="ocultarMercadoPago()">
-                <i class="bi-x" style="font-size: 22px;"></i>
-            </button>
-        </div>
-        <div id="cardPaymentBrick_container"></div>
-    </div>
-    
-</div> -->

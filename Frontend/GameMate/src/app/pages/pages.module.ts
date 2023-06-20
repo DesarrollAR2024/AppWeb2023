@@ -13,9 +13,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NewTiendaComponent } from './tienda/new-tienda/new-tienda.component';
 import { EditTiendaComponent } from './tienda/edit-tienda/edit-tienda.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 
 @NgModule({
-  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent, NewTiendaComponent, EditTiendaComponent, CarritoComponent],
+  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent, NewTiendaComponent, EditTiendaComponent, CarritoComponent, ConfirmacionComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
