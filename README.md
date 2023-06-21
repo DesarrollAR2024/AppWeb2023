@@ -50,9 +50,9 @@ pip install django-rest-passwordreset
 
 pip install djangorestframework_simplejwt
 
-pip install mercadopago
+pip install django-paypal
 
-npm install @mercadopago/sdk-js
+npm install ngx-paypal
 
 Correr el servidor:
 
