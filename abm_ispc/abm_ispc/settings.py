@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PAYPAL_TEST= True
+
 
 # Application definition
 
@@ -41,8 +43,18 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_rest_passwordreset',
+    'rest_framework_simplejwt',
+    'paypal.standard.ipn'
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,7 +69,13 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
+    'http://localhost:4200',
+    ]
+    
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:3306',
+    'http://localhost:4200',
     ]
 
 ROOT_URLCONF = 'abm_ispc.urls'

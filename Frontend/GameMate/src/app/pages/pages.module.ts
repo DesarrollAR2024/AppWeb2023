@@ -10,18 +10,21 @@ import { TerminosycondicinonesComponent } from './terminosycondicinones/terminos
 import { TiendaComponent } from './tienda/tienda.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { NewTiendaComponent } from './tienda/new-tienda/new-tienda.component';
+import { EditTiendaComponent } from './tienda/edit-tienda/edit-tienda.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 
 @NgModule({
-    declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent],
-    imports: [
-        CommonModule,
-        PagesRoutingModule,
-        ReactiveFormsModule,
-        FormsModule
-    ],
+  declarations: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, TiendaComponent, ContactoComponent, ProductoComponent, NosotrosComponent, NewTiendaComponent, EditTiendaComponent, CarritoComponent, ConfirmacionComponent],
+  imports: [
+    CommonModule,
+    PagesRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
 
-    exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent, TiendaComponent, NosotrosComponent]
-  })
+  exports: [DashboardIndexComponent, LoginComponent, RegistroComponent, TerminosycondicinonesComponent, ContactoComponent, ProductoComponent, TiendaComponent, NosotrosComponent]
+})
 
 export class PagesModule { }

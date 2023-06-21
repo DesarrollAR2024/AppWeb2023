@@ -1,16 +1,17 @@
 <body>
   <header>
       <h1>NUESTROS PRODUCTOS</h1>
-      <div class="container-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-            </svg>
-      </div>
-
+      <span routerLink="/newtienda" *ngIf="isLogged">
+        <button type="button" id="agregarProducto" class="btn btn-dark">
+            Agregar Producto
+        </button>
+        <br><br>
+    </span>
+      
   </header>
   <div class="container-items">
       <div class="item" *ngFor="let Tienda of tienda">
-          <figure>
+          <figure routerLink="/producto/{{Tienda.id_producto}}">
               <img
                   src="{{Tienda.imagen}}"
                   alt="producto"
@@ -18,114 +19,15 @@
           </figure>
           <div class="info-product">
               <h2>{{Tienda.nombre}}</h2>
-              <p class="price">{{Tienda.precio}}</p>
-              <button>AÑADIR AL CARRITO</button>
+              <p class="price">${{Tienda.precio}}</p>
+              <button (click)="addcart(Tienda)">AÑADIR AL CARRITO</button>
+                <div *ngIf="isLogged">
+                    <button class="btn btn-light" routerLink="/edittienda/{{Tienda.id_producto}}">
+                    <i class="bi bi-pencil-fill"></i></button>
+                    <button class="btn btn-danger" (click)="delete(Tienda.id_producto)">
+                        <i class="bi bi-trash-fill"></i></button>
+                </div>                  
           </div>
       </div>
-      <!-- <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/ASSA.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Buzo Assassin's Creed</h2>
-              <p class="price">$8.000</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/mortal2.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Taza Mortal Kombat</h2>
-              <p class="price">$2.200</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/game mate2.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Llavero Game Mate</h2>
-              <p class="price">$1.000</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/VALO4.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Gorra Valorant</h2>
-              <p class="price">$3.000</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/STREET.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Remera Street Fighters</h2>
-              <p class="price">$4.200</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/stray2.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Llavero Stray</h2>
-              <p class="price">$1.000</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/CS.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Buzo Counter Strike</h2>
-              <p class="price">$8.000</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div>
-      </div>
-      <div class="item">
-          <figure>
-              <img
-                  src="assets/Tienda Game Mate Galeria/VALO.png"
-                  alt="producto"
-              />
-          </figure>
-          <div class="info-product">
-              <h2>Taza Valorant</h2>
-              <p class="price">$2.200</p>
-              <button>AÑADIR AL CARRITO</button>
-          </div> 
-      </div> -->
   </div>
-
 </body>
